@@ -1,0 +1,13 @@
+C:\Users\SemihDuran\Desktop\Ders Programı Projesi\dersprogrami\dersprogrami\bin\dersprogrami.dll
+C:\Users\SemihDuran\Desktop\Ders Programı Projesi\dersprogrami\dersprogrami\bin\dersprogrami.pdb
+C:\Users\SemihDuran\Desktop\Ders Programı Projesi\dersprogrami\dersprogrami\bin\Ext.Net.dll
+C:\Users\SemihDuran\Desktop\Ders Programı Projesi\dersprogrami\dersprogrami\bin\Ext.Net.Utilities.dll
+C:\Users\SemihDuran\Desktop\Ders Programı Projesi\dersprogrami\dersprogrami\bin\Newtonsoft.Json.dll
+C:\Users\SemihDuran\Desktop\Ders Programı Projesi\dersprogrami\dersprogrami\bin\Ext.Net.pdb
+C:\Users\SemihDuran\Desktop\Ders Programı Projesi\dersprogrami\dersprogrami\bin\Ext.Net.xml
+C:\Users\SemihDuran\Desktop\Ders Programı Projesi\dersprogrami\dersprogrami\bin\Ext.Net.Utilities.xml
+C:\Users\SemihDuran\Desktop\Ders Programı Projesi\dersprogrami\dersprogrami\bin\Newtonsoft.Json.pdb
+C:\Users\SemihDuran\Desktop\Ders Programı Projesi\dersprogrami\dersprogrami\bin\Newtonsoft.Json.xml
+C:\Users\SemihDuran\Desktop\Ders Programı Projesi\dersprogrami\dersprogrami\obj\Debug\dersprogrami.csprojResolveAssemblyReference.cache
+C:\Users\SemihDuran\Desktop\Ders Programı Projesi\dersprogrami\dersprogrami\obj\Debug\dersprogrami.dll
+C:\Users\SemihDuran\Desktop\Ders Programı Projesi\dersprogrami\dersprogrami\obj\Debug\dersprogrami.pdb
