@@ -36,7 +36,9 @@ namespace dersprogrami
                     //GridView1.DataSource = bolumler;
                     //GridView1.DataBind();
 
-
+                    var unvanlar = db.Unvans.ToList();
+                    source_unvan.DataSource = unvanlar;
+                    source_unvan.DataBind();
                 }
                
 
