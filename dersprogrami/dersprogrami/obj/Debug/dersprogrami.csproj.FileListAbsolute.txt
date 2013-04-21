@@ -11,3 +11,13 @@ C:\Users\SemihDuran\Desktop\Ders Programı Projesi\dersprogrami\dersprogrami\bin
 C:\Users\SemihDuran\Desktop\Ders Programı Projesi\dersprogrami\dersprogrami\obj\Debug\dersprogrami.csprojResolveAssemblyReference.cache
 C:\Users\SemihDuran\Desktop\Ders Programı Projesi\dersprogrami\dersprogrami\obj\Debug\dersprogrami.dll
 C:\Users\SemihDuran\Desktop\Ders Programı Projesi\dersprogrami\dersprogrami\obj\Debug\dersprogrami.pdb
+C:\Users\yasinsnb\Documents\GitHub\dersprogrami\dersprogrami\dersprogrami\bin\dersprogrami.dll
+C:\Users\yasinsnb\Documents\GitHub\dersprogrami\dersprogrami\dersprogrami\bin\dersprogrami.pdb
+C:\Users\yasinsnb\Documents\GitHub\dersprogrami\dersprogrami\dersprogrami\bin\Ext.Net.pdb
+C:\Users\yasinsnb\Documents\GitHub\dersprogrami\dersprogrami\dersprogrami\bin\Ext.Net.xml
+C:\Users\yasinsnb\Documents\GitHub\dersprogrami\dersprogrami\dersprogrami\bin\Ext.Net.Utilities.xml
+C:\Users\yasinsnb\Documents\GitHub\dersprogrami\dersprogrami\dersprogrami\bin\Newtonsoft.Json.pdb
+C:\Users\yasinsnb\Documents\GitHub\dersprogrami\dersprogrami\dersprogrami\bin\Newtonsoft.Json.xml
+C:\Users\yasinsnb\Documents\GitHub\dersprogrami\dersprogrami\dersprogrami\obj\Debug\dersprogrami.csprojResolveAssemblyReference.cache
+C:\Users\yasinsnb\Documents\GitHub\dersprogrami\dersprogrami\dersprogrami\obj\Debug\dersprogrami.dll
+C:\Users\yasinsnb\Documents\GitHub\dersprogrami\dersprogrami\dersprogrami\obj\Debug\dersprogrami.pdb

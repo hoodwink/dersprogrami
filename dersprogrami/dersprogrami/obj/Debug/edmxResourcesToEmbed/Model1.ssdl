@@ -1,0 +1,454 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SyllabusDbModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+  <EntityContainer Name="SyllabusDbModelStoreContainer">
+    <EntitySet Name="Bolum" EntityType="SyllabusDbModel.Store.Bolum" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Ders" EntityType="SyllabusDbModel.Store.Ders" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Ders_Hoca" EntityType="SyllabusDbModel.Store.Ders_Hoca" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Ders_Tip" EntityType="SyllabusDbModel.Store.Ders_Tip" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Derslik" EntityType="SyllabusDbModel.Store.Derslik" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Derslik_Tip" EntityType="SyllabusDbModel.Store.Derslik_Tip" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Donem" EntityType="SyllabusDbModel.Store.Donem" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Egitim_Sureleri" EntityType="SyllabusDbModel.Store.Egitim_Sureleri" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Fakulte" EntityType="SyllabusDbModel.Store.Fakulte" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Fakulte_Tipi" EntityType="SyllabusDbModel.Store.Fakulte_Tipi" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Haftalık_Ders_Prog" EntityType="SyllabusDbModel.Store.Haftalık_Ders_Prog" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Hoca" EntityType="SyllabusDbModel.Store.Hoca" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Idari_Gorev" EntityType="SyllabusDbModel.Store.Idari_Gorev" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="sysdiagrams" EntityType="SyllabusDbModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Unvan" EntityType="SyllabusDbModel.Store.Unvan" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Bolum_Egitim_Sureleri" Association="SyllabusDbModel.Store.FK_Bolum_Egitim_Sureleri">
+      <End Role="Egitim_Sureleri" EntitySet="Egitim_Sureleri" />
+      <End Role="Bolum" EntitySet="Bolum" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Bolum_Fakulte" Association="SyllabusDbModel.Store.FK_Bolum_Fakulte">
+      <End Role="Fakulte" EntitySet="Fakulte" />
+      <End Role="Bolum" EntitySet="Bolum" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ders_Donem" Association="SyllabusDbModel.Store.FK_Ders_Donem">
+      <End Role="Donem" EntitySet="Donem" />
+      <End Role="Ders" EntitySet="Ders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ders_Hoca_Ders" Association="SyllabusDbModel.Store.FK_Ders_Hoca_Ders">
+      <End Role="Ders" EntitySet="Ders" />
+      <End Role="Ders_Hoca" EntitySet="Ders_Hoca" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ders_Hoca_Hoca" Association="SyllabusDbModel.Store.FK_Ders_Hoca_Hoca">
+      <End Role="Hoca" EntitySet="Hoca" />
+      <End Role="Ders_Hoca" EntitySet="Ders_Hoca" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Derslik_Bolum" Association="SyllabusDbModel.Store.FK_Derslik_Bolum">
+      <End Role="Bolum" EntitySet="Bolum" />
+      <End Role="Derslik" EntitySet="Derslik" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Derslik_Derslik_Tip" Association="SyllabusDbModel.Store.FK_Derslik_Derslik_Tip">
+      <End Role="Derslik_Tip" EntitySet="Derslik_Tip" />
+      <End Role="Derslik" EntitySet="Derslik" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Fakulte_Fakulte_Tipi" Association="SyllabusDbModel.Store.FK_Fakulte_Fakulte_Tipi">
+      <End Role="Fakulte_Tipi" EntitySet="Fakulte_Tipi" />
+      <End Role="Fakulte" EntitySet="Fakulte" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Haftalık_Ders_Prog_Bolum" Association="SyllabusDbModel.Store.FK_Haftalık_Ders_Prog_Bolum">
+      <End Role="Bolum" EntitySet="Bolum" />
+      <End Role="Haftalık_Ders_Prog" EntitySet="Haftalık_Ders_Prog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Haftalık_Ders_Prog_Ders" Association="SyllabusDbModel.Store.FK_Haftalık_Ders_Prog_Ders">
+      <End Role="Ders" EntitySet="Ders" />
+      <End Role="Haftalık_Ders_Prog" EntitySet="Haftalık_Ders_Prog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Haftalık_Ders_Prog_Derslik" Association="SyllabusDbModel.Store.FK_Haftalık_Ders_Prog_Derslik">
+      <End Role="Derslik" EntitySet="Derslik" />
+      <End Role="Haftalık_Ders_Prog" EntitySet="Haftalık_Ders_Prog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Haftalık_Ders_Prog_Donem" Association="SyllabusDbModel.Store.FK_Haftalık_Ders_Prog_Donem">
+      <End Role="Donem" EntitySet="Donem" />
+      <End Role="Haftalık_Ders_Prog" EntitySet="Haftalık_Ders_Prog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hoca_Bolum" Association="SyllabusDbModel.Store.FK_Hoca_Bolum">
+      <End Role="Bolum" EntitySet="Bolum" />
+      <End Role="Hoca" EntitySet="Hoca" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hoca_Idari_Gorev" Association="SyllabusDbModel.Store.FK_Hoca_Idari_Gorev">
+      <End Role="Idari_Gorev" EntitySet="Idari_Gorev" />
+      <End Role="Hoca" EntitySet="Hoca" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hoca_Unvan" Association="SyllabusDbModel.Store.FK_Hoca_Unvan">
+      <End Role="Unvan" EntitySet="Unvan" />
+      <End Role="Hoca" EntitySet="Hoca" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Bolum">
+    <Key>
+      <PropertyRef Name="bolum_ID" />
+    </Key>
+    <Property Name="bolum_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="fakulte_ID" Type="int" Nullable="false" />
+    <Property Name="bolum_Kodu" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="bolum_Adi" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="bolum_Baskani_Kodu" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="sube_Sayisi" Type="int" />
+    <Property Name="egitim_Suresi_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="Ders">
+    <Key>
+      <PropertyRef Name="ders_ID" />
+    </Key>
+    <Property Name="ders_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="donem_ID" Type="int" Nullable="false" />
+    <Property Name="bolum_ID" Type="int" Nullable="false" />
+    <Property Name="ders_Kodu" Type="varchar" MaxLength="50" />
+    <Property Name="ders_Adi" Type="varchar" MaxLength="50" />
+    <Property Name="ders_Mevcudu" Type="int" />
+    <Property Name="teori_Sayisi" Type="tinyint" />
+    <Property Name="pratik_Sayisi" Type="tinyint" />
+    <Property Name="AKTS_Sayisi" Type="tinyint" />
+    <Property Name="kredi_Sayisi" Type="tinyint" />
+    <Property Name="yariyil" Type="varchar" MaxLength="50" />
+    <Property Name="sinif" Type="varchar" MaxLength="8" />
+    <Property Name="ders_Tipi_ID" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="Ders_Hoca">
+    <Key>
+      <PropertyRef Name="Ders_Hoca_ID" />
+    </Key>
+    <Property Name="hoca_ID" Type="int" />
+    <Property Name="ders_ID" Type="int" />
+    <Property Name="ücret" Type="varchar" MaxLength="50" />
+    <Property Name="Ders_Hoca_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="Ders_Tip">
+    <Key>
+      <PropertyRef Name="ders_Tipi_id" />
+    </Key>
+    <Property Name="ders_Tipi_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ders_Tipi_Adi" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Derslik">
+    <Key>
+      <PropertyRef Name="derslik_ID" />
+    </Key>
+    <Property Name="derslik_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="bolum_ID" Type="int" Nullable="false" />
+    <Property Name="derslik_Kodu" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="derslik_Tip" Type="int" />
+    <Property Name="derslik_Kapasitesi" Type="int" />
+    <Property Name="aciklama" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Derslik_Tip">
+    <Key>
+      <PropertyRef Name="derslik_Tipi_ID" />
+    </Key>
+    <Property Name="derslik_Tipi_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="derslik_Tipi_Adi" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Donem">
+    <Key>
+      <PropertyRef Name="donem_ID" />
+    </Key>
+    <Property Name="donem_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="yil" Type="int" />
+    <Property Name="yariyil" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="donem_Baslangic_Tarihi" Type="date" />
+    <Property Name="donem_Bitis_Tarihi" Type="date" />
+  </EntityType>
+  <EntityType Name="Egitim_Sureleri">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="2" Type="varchar" MaxLength="10" />
+    <Property Name="4" Type="varchar" MaxLength="10" />
+    <Property Name="5" Type="varchar" MaxLength="10" />
+    <Property Name="6" Type="varchar" MaxLength="10" />
+    <Property Name="h+2" Type="varchar" MaxLength="10" />
+    <Property Name="h+4" Type="varchar" MaxLength="10" />
+    <Property Name="h+5" Type="varchar" MaxLength="10" />
+    <Property Name="h+6" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Fakulte">
+    <Key>
+      <PropertyRef Name="fakulte_ID" />
+    </Key>
+    <Property Name="fakulte_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="fakulte_Kodu" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="fakulte_Tipi" Type="int" />
+    <Property Name="fakulte_Adi" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="fakulte_Kisa_Adi" Type="varchar" MaxLength="20" />
+    <Property Name="fakulte_Dekani_ID" Type="int" Nullable="false" />
+    <Property Name="fakulte_Dekan_Yard_ID" Type="int" />
+    <Property Name="fakulte_Dekan_Yard2_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="Fakulte_Tipi">
+    <Key>
+      <PropertyRef Name="fakulte_Tipi_ID" />
+    </Key>
+    <Property Name="fakulte_Tipi_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="fakulte_Tipi_Adi" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Haftalık_Ders_Prog">
+    <Key>
+      <PropertyRef Name="Ders_Programi_ID" />
+    </Key>
+    <Property Name="Ders_Programi_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="donem_ID" Type="int" />
+    <Property Name="gun" Type="tinyint" />
+    <Property Name="saat" Type="tinyint" />
+    <Property Name="ders_ID" Type="int" />
+    <Property Name="derslik_ID" Type="int" />
+    <Property Name="bolum_ID" Type="int" />
+    <Property Name="teorikmi" Type="bit" />
+    <Property Name="sinif" Type="tinyint" />
+    <Property Name="yariyil" Type="varchar" MaxLength="50" />
+    <Property Name="sube" Type="varchar" MaxLength="1" />
+    <Property Name="normal_Ogretimmi" Type="bit" />
+    <Property Name="ücret_Durumu" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Hoca">
+    <Key>
+      <PropertyRef Name="hoca_ID" />
+    </Key>
+    <Property Name="hoca_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="hoca_Adi" Type="varchar" MaxLength="50" />
+    <Property Name="sicil_No" Type="int" />
+    <Property Name="bolum_ID" Type="int" />
+    <Property Name="akademik_Unvan" Type="int" />
+    <Property Name="idari_Gorev" Type="int" />
+  </EntityType>
+  <EntityType Name="Idari_Gorev">
+    <Key>
+      <PropertyRef Name="idari_Gorev_ID" />
+    </Key>
+    <Property Name="idari_Gorev_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="aciklama" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="ders_Yuku_Katsayisi" Type="real" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Unvan">
+    <Key>
+      <PropertyRef Name="unvan_ID" />
+    </Key>
+    <Property Name="unvan_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="unvan_Adi" Type="varchar" MaxLength="50" />
+    <Property Name="ders_Yuku" Type="int" />
+  </EntityType>
+  <Association Name="FK_Bolum_Egitim_Sureleri">
+    <End Role="Egitim_Sureleri" Type="SyllabusDbModel.Store.Egitim_Sureleri" Multiplicity="0..1" />
+    <End Role="Bolum" Type="SyllabusDbModel.Store.Bolum" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Egitim_Sureleri">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Bolum">
+        <PropertyRef Name="egitim_Suresi_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bolum_Fakulte">
+    <End Role="Fakulte" Type="SyllabusDbModel.Store.Fakulte" Multiplicity="1" />
+    <End Role="Bolum" Type="SyllabusDbModel.Store.Bolum" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fakulte">
+        <PropertyRef Name="fakulte_ID" />
+      </Principal>
+      <Dependent Role="Bolum">
+        <PropertyRef Name="fakulte_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ders_Donem">
+    <End Role="Donem" Type="SyllabusDbModel.Store.Donem" Multiplicity="1" />
+    <End Role="Ders" Type="SyllabusDbModel.Store.Ders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Donem">
+        <PropertyRef Name="donem_ID" />
+      </Principal>
+      <Dependent Role="Ders">
+        <PropertyRef Name="donem_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ders_Hoca_Ders">
+    <End Role="Ders" Type="SyllabusDbModel.Store.Ders" Multiplicity="0..1" />
+    <End Role="Ders_Hoca" Type="SyllabusDbModel.Store.Ders_Hoca" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ders">
+        <PropertyRef Name="ders_ID" />
+      </Principal>
+      <Dependent Role="Ders_Hoca">
+        <PropertyRef Name="ders_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ders_Hoca_Hoca">
+    <End Role="Hoca" Type="SyllabusDbModel.Store.Hoca" Multiplicity="0..1" />
+    <End Role="Ders_Hoca" Type="SyllabusDbModel.Store.Ders_Hoca" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hoca">
+        <PropertyRef Name="hoca_ID" />
+      </Principal>
+      <Dependent Role="Ders_Hoca">
+        <PropertyRef Name="hoca_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Derslik_Bolum">
+    <End Role="Bolum" Type="SyllabusDbModel.Store.Bolum" Multiplicity="1" />
+    <End Role="Derslik" Type="SyllabusDbModel.Store.Derslik" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bolum">
+        <PropertyRef Name="bolum_ID" />
+      </Principal>
+      <Dependent Role="Derslik">
+        <PropertyRef Name="bolum_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Derslik_Derslik_Tip">
+    <End Role="Derslik_Tip" Type="SyllabusDbModel.Store.Derslik_Tip" Multiplicity="0..1" />
+    <End Role="Derslik" Type="SyllabusDbModel.Store.Derslik" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Derslik_Tip">
+        <PropertyRef Name="derslik_Tipi_ID" />
+      </Principal>
+      <Dependent Role="Derslik">
+        <PropertyRef Name="derslik_Tip" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Fakulte_Fakulte_Tipi">
+    <End Role="Fakulte_Tipi" Type="SyllabusDbModel.Store.Fakulte_Tipi" Multiplicity="0..1" />
+    <End Role="Fakulte" Type="SyllabusDbModel.Store.Fakulte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fakulte_Tipi">
+        <PropertyRef Name="fakulte_Tipi_ID" />
+      </Principal>
+      <Dependent Role="Fakulte">
+        <PropertyRef Name="fakulte_Tipi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Haftalık_Ders_Prog_Bolum">
+    <End Role="Bolum" Type="SyllabusDbModel.Store.Bolum" Multiplicity="0..1" />
+    <End Role="Haftalık_Ders_Prog" Type="SyllabusDbModel.Store.Haftalık_Ders_Prog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bolum">
+        <PropertyRef Name="bolum_ID" />
+      </Principal>
+      <Dependent Role="Haftalık_Ders_Prog">
+        <PropertyRef Name="bolum_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Haftalık_Ders_Prog_Ders">
+    <End Role="Ders" Type="SyllabusDbModel.Store.Ders" Multiplicity="0..1" />
+    <End Role="Haftalık_Ders_Prog" Type="SyllabusDbModel.Store.Haftalık_Ders_Prog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ders">
+        <PropertyRef Name="ders_ID" />
+      </Principal>
+      <Dependent Role="Haftalık_Ders_Prog">
+        <PropertyRef Name="ders_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Haftalık_Ders_Prog_Derslik">
+    <End Role="Derslik" Type="SyllabusDbModel.Store.Derslik" Multiplicity="0..1" />
+    <End Role="Haftalık_Ders_Prog" Type="SyllabusDbModel.Store.Haftalık_Ders_Prog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Derslik">
+        <PropertyRef Name="derslik_ID" />
+      </Principal>
+      <Dependent Role="Haftalık_Ders_Prog">
+        <PropertyRef Name="derslik_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Haftalık_Ders_Prog_Donem">
+    <End Role="Donem" Type="SyllabusDbModel.Store.Donem" Multiplicity="0..1" />
+    <End Role="Haftalık_Ders_Prog" Type="SyllabusDbModel.Store.Haftalık_Ders_Prog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Donem">
+        <PropertyRef Name="donem_ID" />
+      </Principal>
+      <Dependent Role="Haftalık_Ders_Prog">
+        <PropertyRef Name="donem_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hoca_Bolum">
+    <End Role="Bolum" Type="SyllabusDbModel.Store.Bolum" Multiplicity="0..1" />
+    <End Role="Hoca" Type="SyllabusDbModel.Store.Hoca" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bolum">
+        <PropertyRef Name="bolum_ID" />
+      </Principal>
+      <Dependent Role="Hoca">
+        <PropertyRef Name="bolum_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hoca_Idari_Gorev">
+    <End Role="Idari_Gorev" Type="SyllabusDbModel.Store.Idari_Gorev" Multiplicity="0..1" />
+    <End Role="Hoca" Type="SyllabusDbModel.Store.Hoca" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Idari_Gorev">
+        <PropertyRef Name="idari_Gorev_ID" />
+      </Principal>
+      <Dependent Role="Hoca">
+        <PropertyRef Name="idari_Gorev" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hoca_Unvan">
+    <End Role="Unvan" Type="SyllabusDbModel.Store.Unvan" Multiplicity="0..1" />
+    <End Role="Hoca" Type="SyllabusDbModel.Store.Hoca" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unvan">
+        <PropertyRef Name="unvan_ID" />
+      </Principal>
+      <Dependent Role="Hoca">
+        <PropertyRef Name="akademik_Unvan" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" ReturnType="int" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+</Schema>
