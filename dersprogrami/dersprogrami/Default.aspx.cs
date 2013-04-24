@@ -13,40 +13,11 @@ namespace dersprogrami
     {
         protected void Page_Load(object sender, EventArgs e)
         {   
-            
             //her sayfanın başında bu kontrolü yapmamız gerekiyor, kişi login olmamış ise login sayfasına yönlendiriyor
             userControl();
             if (!IsPostBack)
             {
-                SyllabusDbEntities db;
-                using (db = new SyllabusDbEntities())
-                {
-
-                    //var fakulteler = db.fakultes.ToList();
-
-                    //foreach (var item in fakulteler)
-                    //{
-                    //    Response.Write(item.fakulte_name + "<br>");
-
-                    //}
-
-                    //DropDownList1.DataSource = fakulteler;
-                    //DropDownList1.DataTextField = "fakulte_name";
-                    //DropDownList1.DataValueField = "fakulte_id";
-                    //DropDownList1.DataBind();
-
-                    //var bolumler = db.bolums.ToList();
-                    //GridView1.DataSource = bolumler;
-                    //GridView1.DataBind();
-
-                    var unvanlar = db.Unvans.ToList();
-                    source_unvan.DataSource = unvanlar;
-                    source_unvan.DataBind();
-                }
-               
-
             }
-
         }
 
         private void userControl()
