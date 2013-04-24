@@ -144,6 +144,18 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Kullanicis">
+      <EntityTypeMapping TypeName="SyllabusDbModel.Kullanici">
+        <MappingFragment StoreEntitySet="Kullanici">
+          <ScalarProperty Name="KULLANICI_ID" ColumnName="KULLANICI_ID" />
+          <ScalarProperty Name="KULLANICI_PAROLA" ColumnName="KULLANICI_PAROLA" />
+          <ScalarProperty Name="KULLANICI_OTURUM_ID" ColumnName="KULLANICI_OTURUM_ID" />
+          <ScalarProperty Name="KULLANICI_EMAIL" ColumnName="KULLANICI_EMAIL" />
+          <ScalarProperty Name="KULLANICI_ADSOYAD" ColumnName="KULLANICI_ADSOYAD" />
+          <ScalarProperty Name="KULLANICI_GOREV" ColumnName="KULLANICI_GOREV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="sysdiagrams">
       <EntityTypeMapping TypeName="SyllabusDbModel.sysdiagram">
         <MappingFragment StoreEntitySet="sysdiagrams">

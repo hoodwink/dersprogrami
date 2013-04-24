@@ -14,6 +14,7 @@
     <EntitySet Name="Haftalık_Ders_Prog" EntityType="SyllabusDbModel.Store.Haftalık_Ders_Prog" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Hoca" EntityType="SyllabusDbModel.Store.Hoca" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Idari_Gorev" EntityType="SyllabusDbModel.Store.Idari_Gorev" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Kullanici" EntityType="SyllabusDbModel.Store.Kullanici" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="sysdiagrams" EntityType="SyllabusDbModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Unvan" EntityType="SyllabusDbModel.Store.Unvan" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="FK_Bolum_Egitim_Sureleri" Association="SyllabusDbModel.Store.FK_Bolum_Egitim_Sureleri">
@@ -221,6 +222,17 @@
     <Property Name="idari_Gorev_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="aciklama" Type="varchar" Nullable="false" MaxLength="50" />
     <Property Name="ders_Yuku_Katsayisi" Type="real" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Kullanici">
+    <Key>
+      <PropertyRef Name="KULLANICI_ID" />
+    </Key>
+    <Property Name="KULLANICI_ID" Type="varchar" Nullable="false" MaxLength="16" />
+    <Property Name="KULLANICI_PAROLA" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="KULLANICI_OTURUM_ID" Type="varchar" MaxLength="255" />
+    <Property Name="KULLANICI_EMAIL" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="KULLANICI_ADSOYAD" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="KULLANICI_GOREV" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>

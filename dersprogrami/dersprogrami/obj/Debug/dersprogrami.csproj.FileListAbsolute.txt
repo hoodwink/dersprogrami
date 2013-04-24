@@ -26,3 +26,8 @@ C:\Users\SemihDuran\Documents\GitHub\dersprogrami\dersprogrami\dersprogrami\bin\
 C:\Users\SemihDuran\Documents\GitHub\dersprogrami\dersprogrami\dersprogrami\obj\Debug\dersprogrami.csprojResolveAssemblyReference.cache
 C:\Users\SemihDuran\Documents\GitHub\dersprogrami\dersprogrami\dersprogrami\obj\Debug\dersprogrami.dll
 C:\Users\SemihDuran\Documents\GitHub\dersprogrami\dersprogrami\dersprogrami\obj\Debug\dersprogrami.pdb
+C:\Users\fatihxnb\Documents\GitHub\dersprogrami\dersprogrami\dersprogrami\obj\Debug\dersprogrami.csprojResolveAssemblyReference.cache
+C:\Users\fatihxnb\Documents\GitHub\dersprogrami\dersprogrami\dersprogrami\obj\Debug\dersprogrami.dll
+C:\Users\fatihxnb\Documents\GitHub\dersprogrami\dersprogrami\dersprogrami\bin\dersprogrami.dll
+C:\Users\fatihxnb\Documents\GitHub\dersprogrami\dersprogrami\dersprogrami\bin\dersprogrami.pdb
+C:\Users\fatihxnb\Documents\GitHub\dersprogrami\dersprogrami\dersprogrami\obj\Debug\dersprogrami.pdb

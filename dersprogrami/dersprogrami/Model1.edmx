@@ -19,6 +19,7 @@
           <EntitySet Name="Haftalık_Ders_Prog" EntityType="SyllabusDbModel.Store.Haftalık_Ders_Prog" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Hoca" EntityType="SyllabusDbModel.Store.Hoca" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Idari_Gorev" EntityType="SyllabusDbModel.Store.Idari_Gorev" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Kullanici" EntityType="SyllabusDbModel.Store.Kullanici" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="sysdiagrams" EntityType="SyllabusDbModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Unvan" EntityType="SyllabusDbModel.Store.Unvan" store:Type="Tables" Schema="dbo" />
           <AssociationSet Name="FK_Bolum_Egitim_Sureleri" Association="SyllabusDbModel.Store.FK_Bolum_Egitim_Sureleri">
@@ -226,6 +227,17 @@
           <Property Name="idari_Gorev_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="aciklama" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="ders_Yuku_Katsayisi" Type="real" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Kullanici">
+          <Key>
+            <PropertyRef Name="KULLANICI_ID" />
+          </Key>
+          <Property Name="KULLANICI_ID" Type="varchar" Nullable="false" MaxLength="16" />
+          <Property Name="KULLANICI_PAROLA" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="KULLANICI_OTURUM_ID" Type="varchar" MaxLength="255" />
+          <Property Name="KULLANICI_EMAIL" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="KULLANICI_ADSOYAD" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="KULLANICI_GOREV" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -475,6 +487,7 @@
           <EntitySet Name="Haftalık_Ders_Prog" EntityType="SyllabusDbModel.Haftalık_Ders_Prog" />
           <EntitySet Name="Hocas" EntityType="SyllabusDbModel.Hoca" />
           <EntitySet Name="Idari_Gorev" EntityType="SyllabusDbModel.Idari_Gorev" />
+          <EntitySet Name="Kullanicis" EntityType="SyllabusDbModel.Kullanici" />
           <EntitySet Name="sysdiagrams" EntityType="SyllabusDbModel.sysdiagram" />
           <EntitySet Name="Unvans" EntityType="SyllabusDbModel.Unvan" />
           <AssociationSet Name="FK_Bolum_Egitim_Sureleri" Association="SyllabusDbModel.FK_Bolum_Egitim_Sureleri">
@@ -696,6 +709,17 @@
           <Property Name="aciklama" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="ders_Yuku_Katsayisi" Type="Single" Nullable="false" />
           <NavigationProperty Name="Hocas" Relationship="SyllabusDbModel.FK_Hoca_Idari_Gorev" FromRole="Idari_Gorev" ToRole="Hoca" />
+        </EntityType>
+        <EntityType Name="Kullanici">
+          <Key>
+            <PropertyRef Name="KULLANICI_ID" />
+          </Key>
+          <Property Name="KULLANICI_ID" Type="String" Nullable="false" MaxLength="16" Unicode="false" FixedLength="false" />
+          <Property Name="KULLANICI_PAROLA" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="KULLANICI_OTURUM_ID" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="KULLANICI_EMAIL" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="KULLANICI_ADSOYAD" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="KULLANICI_GOREV" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -925,6 +949,18 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Kullanicis">
+            <EntityTypeMapping TypeName="SyllabusDbModel.Kullanici">
+              <MappingFragment StoreEntitySet="Kullanici">
+                <ScalarProperty Name="KULLANICI_ID" ColumnName="KULLANICI_ID" />
+                <ScalarProperty Name="KULLANICI_PAROLA" ColumnName="KULLANICI_PAROLA" />
+                <ScalarProperty Name="KULLANICI_OTURUM_ID" ColumnName="KULLANICI_OTURUM_ID" />
+                <ScalarProperty Name="KULLANICI_EMAIL" ColumnName="KULLANICI_EMAIL" />
+                <ScalarProperty Name="KULLANICI_ADSOYAD" ColumnName="KULLANICI_ADSOYAD" />
+                <ScalarProperty Name="KULLANICI_GOREV" ColumnName="KULLANICI_GOREV" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
             <EntityTypeMapping TypeName="SyllabusDbModel.sysdiagram">
               <MappingFragment StoreEntitySet="sysdiagrams">
@@ -1111,7 +1147,8 @@
         <EntityTypeShape EntityType="SyllabusDbModel.Haftalık_Ders_Prog" Width="1.5" PointX="12.75" PointY="5" Height="3.5186979166666745" IsExpanded="true" />
         <EntityTypeShape EntityType="SyllabusDbModel.Hoca" Width="1.5" PointX="10.5" PointY="5.5" Height="2.3648893229166745" IsExpanded="true" />
         <EntityTypeShape EntityType="SyllabusDbModel.Idari_Gorev" Width="1.5" PointX="8.25" PointY="2.5" Height="1.7879850260416674" IsExpanded="true" />
-        <EntityTypeShape EntityType="SyllabusDbModel.sysdiagram" Width="1.5" PointX="2.75" PointY="9" Height="1.9802864583333388" IsExpanded="true" />
+        <EntityTypeShape EntityType="SyllabusDbModel.Kullanici" Width="1.5" PointX="2.75" PointY="9" Height="2.1725878906250031" IsExpanded="true" />
+        <EntityTypeShape EntityType="SyllabusDbModel.sysdiagram" Width="1.5" PointX="4.75" PointY="9" Height="1.9802864583333388" IsExpanded="true" />
         <EntityTypeShape EntityType="SyllabusDbModel.Unvan" Width="1.5" PointX="8.25" PointY="12.125" Height="1.7879850260416674" IsExpanded="true" />
         <AssociationConnector Association="SyllabusDbModel.FK_Bolum_Egitim_Sureleri" ManuallyRouted="false">
           <ConnectorPoint PointX="4.5" PointY="4.1917936197916674" />

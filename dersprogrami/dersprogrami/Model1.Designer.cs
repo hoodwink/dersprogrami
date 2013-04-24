@@ -26,7 +26,7 @@
 [assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("SyllabusDbModel", "FK_Hoca_Unvan", "Unvan", global::System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(dersprogrami.Unvan), "Hoca", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(dersprogrami.Hoca))]
 
 // Original file name:
-// Generation date: 21.04.2013 22:07:08
+// Generation date: 24.04.2013 22:14:14
 namespace dersprogrami
 {
     
@@ -282,6 +282,23 @@ namespace dersprogrami
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
         private global::System.Data.Objects.ObjectQuery<Idari_Gorev> _Idari_Gorev;
         /// <summary>
+        /// There are no comments for Kullanicis in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public global::System.Data.Objects.ObjectQuery<Kullanici> Kullanicis
+        {
+            get
+            {
+                if ((this._Kullanicis == null))
+                {
+                    this._Kullanicis = base.CreateQuery<Kullanici>("[Kullanicis]");
+                }
+                return this._Kullanicis;
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private global::System.Data.Objects.ObjectQuery<Kullanici> _Kullanicis;
+        /// <summary>
         /// There are no comments for sysdiagrams in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
@@ -418,6 +435,14 @@ namespace dersprogrami
         public void AddToIdari_Gorev(Idari_Gorev idari_Gorev)
         {
             base.AddObject("Idari_Gorev", idari_Gorev);
+        }
+        /// <summary>
+        /// There are no comments for Kullanicis in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public void AddToKullanicis(Kullanici kullanici)
+        {
+            base.AddObject("Kullanicis", kullanici);
         }
         /// <summary>
         /// There are no comments for sysdiagrams in the schema.
@@ -3410,6 +3435,199 @@ namespace dersprogrami
                 }
             }
         }
+    }
+    /// <summary>
+    /// There are no comments for SyllabusDbModel.Kullanici in the schema.
+    /// </summary>
+    /// <KeyProperties>
+    /// KULLANICI_ID
+    /// </KeyProperties>
+    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="SyllabusDbModel", Name="Kullanici")]
+    [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
+    [global::System.Serializable()]
+    public partial class Kullanici : global::System.Data.Objects.DataClasses.EntityObject
+    {
+        /// <summary>
+        /// Create a new Kullanici object.
+        /// </summary>
+        /// <param name="kULLANICI_ID">Initial value of KULLANICI_ID.</param>
+        /// <param name="kULLANICI_PAROLA">Initial value of KULLANICI_PAROLA.</param>
+        /// <param name="kULLANICI_EMAIL">Initial value of KULLANICI_EMAIL.</param>
+        /// <param name="kULLANICI_ADSOYAD">Initial value of KULLANICI_ADSOYAD.</param>
+        /// <param name="kULLANICI_GOREV">Initial value of KULLANICI_GOREV.</param>
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public static Kullanici CreateKullanici(string kULLANICI_ID, string kULLANICI_PAROLA, string kULLANICI_EMAIL, string kULLANICI_ADSOYAD, int kULLANICI_GOREV)
+        {
+            Kullanici kullanici = new Kullanici();
+            kullanici.KULLANICI_ID = kULLANICI_ID;
+            kullanici.KULLANICI_PAROLA = kULLANICI_PAROLA;
+            kullanici.KULLANICI_EMAIL = kULLANICI_EMAIL;
+            kullanici.KULLANICI_ADSOYAD = kULLANICI_ADSOYAD;
+            kullanici.KULLANICI_GOREV = kULLANICI_GOREV;
+            return kullanici;
+        }
+        /// <summary>
+        /// There are no comments for property KULLANICI_ID in the schema.
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string KULLANICI_ID
+        {
+            get
+            {
+                return this._KULLANICI_ID;
+            }
+            set
+            {
+                this.OnKULLANICI_IDChanging(value);
+                this.ReportPropertyChanging("KULLANICI_ID");
+                this._KULLANICI_ID = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
+                this.ReportPropertyChanged("KULLANICI_ID");
+                this.OnKULLANICI_IDChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _KULLANICI_ID;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnKULLANICI_IDChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnKULLANICI_IDChanged();
+        /// <summary>
+        /// There are no comments for property KULLANICI_PAROLA in the schema.
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string KULLANICI_PAROLA
+        {
+            get
+            {
+                return this._KULLANICI_PAROLA;
+            }
+            set
+            {
+                this.OnKULLANICI_PAROLAChanging(value);
+                this.ReportPropertyChanging("KULLANICI_PAROLA");
+                this._KULLANICI_PAROLA = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
+                this.ReportPropertyChanged("KULLANICI_PAROLA");
+                this.OnKULLANICI_PAROLAChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _KULLANICI_PAROLA;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnKULLANICI_PAROLAChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnKULLANICI_PAROLAChanged();
+        /// <summary>
+        /// There are no comments for property KULLANICI_OTURUM_ID in the schema.
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string KULLANICI_OTURUM_ID
+        {
+            get
+            {
+                return this._KULLANICI_OTURUM_ID;
+            }
+            set
+            {
+                this.OnKULLANICI_OTURUM_IDChanging(value);
+                this.ReportPropertyChanging("KULLANICI_OTURUM_ID");
+                this._KULLANICI_OTURUM_ID = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("KULLANICI_OTURUM_ID");
+                this.OnKULLANICI_OTURUM_IDChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _KULLANICI_OTURUM_ID;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnKULLANICI_OTURUM_IDChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnKULLANICI_OTURUM_IDChanged();
+        /// <summary>
+        /// There are no comments for property KULLANICI_EMAIL in the schema.
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string KULLANICI_EMAIL
+        {
+            get
+            {
+                return this._KULLANICI_EMAIL;
+            }
+            set
+            {
+                this.OnKULLANICI_EMAILChanging(value);
+                this.ReportPropertyChanging("KULLANICI_EMAIL");
+                this._KULLANICI_EMAIL = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
+                this.ReportPropertyChanged("KULLANICI_EMAIL");
+                this.OnKULLANICI_EMAILChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _KULLANICI_EMAIL;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnKULLANICI_EMAILChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnKULLANICI_EMAILChanged();
+        /// <summary>
+        /// There are no comments for property KULLANICI_ADSOYAD in the schema.
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string KULLANICI_ADSOYAD
+        {
+            get
+            {
+                return this._KULLANICI_ADSOYAD;
+            }
+            set
+            {
+                this.OnKULLANICI_ADSOYADChanging(value);
+                this.ReportPropertyChanging("KULLANICI_ADSOYAD");
+                this._KULLANICI_ADSOYAD = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
+                this.ReportPropertyChanged("KULLANICI_ADSOYAD");
+                this.OnKULLANICI_ADSOYADChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _KULLANICI_ADSOYAD;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnKULLANICI_ADSOYADChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnKULLANICI_ADSOYADChanged();
+        /// <summary>
+        /// There are no comments for property KULLANICI_GOREV in the schema.
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public int KULLANICI_GOREV
+        {
+            get
+            {
+                return this._KULLANICI_GOREV;
+            }
+            set
+            {
+                this.OnKULLANICI_GOREVChanging(value);
+                this.ReportPropertyChanging("KULLANICI_GOREV");
+                this._KULLANICI_GOREV = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("KULLANICI_GOREV");
+                this.OnKULLANICI_GOREVChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private int _KULLANICI_GOREV;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnKULLANICI_GOREVChanging(int value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnKULLANICI_GOREVChanged();
     }
     /// <summary>
     /// There are no comments for SyllabusDbModel.sysdiagram in the schema.

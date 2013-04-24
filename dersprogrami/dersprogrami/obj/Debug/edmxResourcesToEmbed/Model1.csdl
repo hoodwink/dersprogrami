@@ -14,6 +14,7 @@
     <EntitySet Name="Haftalık_Ders_Prog" EntityType="SyllabusDbModel.Haftalık_Ders_Prog" />
     <EntitySet Name="Hocas" EntityType="SyllabusDbModel.Hoca" />
     <EntitySet Name="Idari_Gorev" EntityType="SyllabusDbModel.Idari_Gorev" />
+    <EntitySet Name="Kullanicis" EntityType="SyllabusDbModel.Kullanici" />
     <EntitySet Name="sysdiagrams" EntityType="SyllabusDbModel.sysdiagram" />
     <EntitySet Name="Unvans" EntityType="SyllabusDbModel.Unvan" />
     <AssociationSet Name="FK_Bolum_Egitim_Sureleri" Association="SyllabusDbModel.FK_Bolum_Egitim_Sureleri">
@@ -235,6 +236,17 @@
     <Property Name="aciklama" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="ders_Yuku_Katsayisi" Type="Single" Nullable="false" />
     <NavigationProperty Name="Hocas" Relationship="SyllabusDbModel.FK_Hoca_Idari_Gorev" FromRole="Idari_Gorev" ToRole="Hoca" />
+  </EntityType>
+  <EntityType Name="Kullanici">
+    <Key>
+      <PropertyRef Name="KULLANICI_ID" />
+    </Key>
+    <Property Name="KULLANICI_ID" Type="String" Nullable="false" MaxLength="16" Unicode="false" FixedLength="false" />
+    <Property Name="KULLANICI_PAROLA" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="KULLANICI_OTURUM_ID" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="KULLANICI_EMAIL" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="KULLANICI_ADSOYAD" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="KULLANICI_GOREV" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="sysdiagram">
     <Key>
