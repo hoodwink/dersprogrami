@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="SyllabusDbModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
-  <EntityContainer Name="SyllabusDbEntities">
+<Schema Namespace="SyllabusDbModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="SyllabusDbEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Bolums" EntityType="SyllabusDbModel.Bolum" />
     <EntitySet Name="Ders" EntityType="SyllabusDbModel.Der" />
     <EntitySet Name="Ders_Hoca" EntityType="SyllabusDbModel.Ders_Hoca" />
@@ -83,10 +83,12 @@
       <PropertyRef Name="bolum_ID" />
     </Key>
     <Property Name="bolum_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fakulte_ID" Type="Int32" Nullable="false" />
     <Property Name="bolum_Kodu" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="bolum_Adi" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="bolum_Baskani_Kodu" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="sube_Sayisi" Type="Int32" />
+    <Property Name="egitim_Suresi_ID" Type="Int32" />
     <NavigationProperty Name="Egitim_Sureleri" Relationship="SyllabusDbModel.FK_Bolum_Egitim_Sureleri" FromRole="Bolum" ToRole="Egitim_Sureleri" />
     <NavigationProperty Name="Fakulte" Relationship="SyllabusDbModel.FK_Bolum_Fakulte" FromRole="Bolum" ToRole="Fakulte" />
     <NavigationProperty Name="Dersliks" Relationship="SyllabusDbModel.FK_Derslik_Bolum" FromRole="Bolum" ToRole="Derslik" />
@@ -98,6 +100,7 @@
       <PropertyRef Name="ders_ID" />
     </Key>
     <Property Name="ders_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="donem_ID" Type="Int32" Nullable="false" />
     <Property Name="bolum_ID" Type="Int32" Nullable="false" />
     <Property Name="ders_Kodu" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="ders_Adi" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
@@ -117,6 +120,8 @@
     <Key>
       <PropertyRef Name="Ders_Hoca_ID" />
     </Key>
+    <Property Name="hoca_ID" Type="Int32" />
+    <Property Name="ders_ID" Type="Int32" />
     <Property Name="ücret" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="Ders_Hoca_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <NavigationProperty Name="Der" Relationship="SyllabusDbModel.FK_Ders_Hoca_Ders" FromRole="Ders_Hoca" ToRole="Ders" />
@@ -134,11 +139,13 @@
       <PropertyRef Name="derslik_ID" />
     </Key>
     <Property Name="derslik_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="bolum_ID" Type="Int32" Nullable="false" />
     <Property Name="derslik_Kodu" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="derslik_Tip" Type="Int32" />
     <Property Name="derslik_Kapasitesi" Type="Int32" />
     <Property Name="aciklama" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
     <NavigationProperty Name="Bolum" Relationship="SyllabusDbModel.FK_Derslik_Bolum" FromRole="Derslik" ToRole="Bolum" />
-    <NavigationProperty Name="Derslik_Tip" Relationship="SyllabusDbModel.FK_Derslik_Derslik_Tip" FromRole="Derslik" ToRole="Derslik_Tip" />
+    <NavigationProperty Name="Derslik_Tip1" Relationship="SyllabusDbModel.FK_Derslik_Derslik_Tip" FromRole="Derslik" ToRole="Derslik_Tip" />
     <NavigationProperty Name="Haftalık_Ders_Prog" Relationship="SyllabusDbModel.FK_Haftalık_Ders_Prog_Derslik" FromRole="Derslik" ToRole="Haftalık_Ders_Prog" />
   </EntityType>
   <EntityType Name="Derslik_Tip">
@@ -182,13 +189,14 @@
     </Key>
     <Property Name="fakulte_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="fakulte_Kodu" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="fakulte_Tipi" Type="Int32" />
     <Property Name="fakulte_Adi" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="fakulte_Kisa_Adi" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
     <Property Name="fakulte_Dekani_ID" Type="Int32" Nullable="false" />
     <Property Name="fakulte_Dekan_Yard_ID" Type="Int32" />
     <Property Name="fakulte_Dekan_Yard2_ID" Type="Int32" />
     <NavigationProperty Name="Bolums" Relationship="SyllabusDbModel.FK_Bolum_Fakulte" FromRole="Fakulte" ToRole="Bolum" />
-    <NavigationProperty Name="Fakulte_Tipi" Relationship="SyllabusDbModel.FK_Fakulte_Fakulte_Tipi" FromRole="Fakulte" ToRole="Fakulte_Tipi" />
+    <NavigationProperty Name="Fakulte_Tipi1" Relationship="SyllabusDbModel.FK_Fakulte_Fakulte_Tipi" FromRole="Fakulte" ToRole="Fakulte_Tipi" />
   </EntityType>
   <EntityType Name="Fakulte_Tipi">
     <Key>
@@ -203,8 +211,12 @@
       <PropertyRef Name="Ders_Programi_ID" />
     </Key>
     <Property Name="Ders_Programi_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="donem_ID" Type="Int32" />
     <Property Name="gun" Type="Byte" />
     <Property Name="saat" Type="Byte" />
+    <Property Name="ders_ID" Type="Int32" />
+    <Property Name="derslik_ID" Type="Int32" />
+    <Property Name="bolum_ID" Type="Int32" />
     <Property Name="teorikmi" Type="Boolean" />
     <Property Name="sinif" Type="Byte" />
     <Property Name="yariyil" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
@@ -223,9 +235,12 @@
     <Property Name="hoca_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="hoca_Adi" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="sicil_No" Type="Int32" />
+    <Property Name="bolum_ID" Type="Int32" />
+    <Property Name="akademik_Unvan" Type="Int32" />
+    <Property Name="idari_Gorev" Type="Int32" />
     <NavigationProperty Name="Bolum" Relationship="SyllabusDbModel.FK_Hoca_Bolum" FromRole="Hoca" ToRole="Bolum" />
     <NavigationProperty Name="Ders_Hoca" Relationship="SyllabusDbModel.FK_Ders_Hoca_Hoca" FromRole="Hoca" ToRole="Ders_Hoca" />
-    <NavigationProperty Name="Idari_Gorev" Relationship="SyllabusDbModel.FK_Hoca_Idari_Gorev" FromRole="Hoca" ToRole="Idari_Gorev" />
+    <NavigationProperty Name="Idari_Gorev1" Relationship="SyllabusDbModel.FK_Hoca_Idari_Gorev" FromRole="Hoca" ToRole="Idari_Gorev" />
     <NavigationProperty Name="Unvan" Relationship="SyllabusDbModel.FK_Hoca_Unvan" FromRole="Hoca" ToRole="Unvan" />
   </EntityType>
   <EntityType Name="Idari_Gorev">
@@ -270,61 +285,181 @@
   <Association Name="FK_Bolum_Egitim_Sureleri">
     <End Role="Egitim_Sureleri" Type="SyllabusDbModel.Egitim_Sureleri" Multiplicity="0..1" />
     <End Role="Bolum" Type="SyllabusDbModel.Bolum" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Egitim_Sureleri">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Bolum">
+        <PropertyRef Name="egitim_Suresi_ID" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
   <Association Name="FK_Bolum_Fakulte">
     <End Role="Fakulte" Type="SyllabusDbModel.Fakulte" Multiplicity="1" />
     <End Role="Bolum" Type="SyllabusDbModel.Bolum" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fakulte">
+        <PropertyRef Name="fakulte_ID" />
+      </Principal>
+      <Dependent Role="Bolum">
+        <PropertyRef Name="fakulte_ID" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
   <Association Name="FK_Derslik_Bolum">
     <End Role="Bolum" Type="SyllabusDbModel.Bolum" Multiplicity="1" />
     <End Role="Derslik" Type="SyllabusDbModel.Derslik" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bolum">
+        <PropertyRef Name="bolum_ID" />
+      </Principal>
+      <Dependent Role="Derslik">
+        <PropertyRef Name="bolum_ID" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
   <Association Name="FK_Haftalık_Ders_Prog_Bolum">
     <End Role="Bolum" Type="SyllabusDbModel.Bolum" Multiplicity="0..1" />
     <End Role="Haftalık_Ders_Prog" Type="SyllabusDbModel.Haftalık_Ders_Prog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bolum">
+        <PropertyRef Name="bolum_ID" />
+      </Principal>
+      <Dependent Role="Haftalık_Ders_Prog">
+        <PropertyRef Name="bolum_ID" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
   <Association Name="FK_Hoca_Bolum">
     <End Role="Bolum" Type="SyllabusDbModel.Bolum" Multiplicity="0..1" />
     <End Role="Hoca" Type="SyllabusDbModel.Hoca" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bolum">
+        <PropertyRef Name="bolum_ID" />
+      </Principal>
+      <Dependent Role="Hoca">
+        <PropertyRef Name="bolum_ID" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
   <Association Name="FK_Ders_Donem">
     <End Role="Donem" Type="SyllabusDbModel.Donem" Multiplicity="1" />
     <End Role="Ders" Type="SyllabusDbModel.Der" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Donem">
+        <PropertyRef Name="donem_ID" />
+      </Principal>
+      <Dependent Role="Ders">
+        <PropertyRef Name="donem_ID" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
   <Association Name="FK_Ders_Hoca_Ders">
     <End Role="Ders" Type="SyllabusDbModel.Der" Multiplicity="0..1" />
     <End Role="Ders_Hoca" Type="SyllabusDbModel.Ders_Hoca" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ders">
+        <PropertyRef Name="ders_ID" />
+      </Principal>
+      <Dependent Role="Ders_Hoca">
+        <PropertyRef Name="ders_ID" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
   <Association Name="FK_Haftalık_Ders_Prog_Ders">
     <End Role="Ders" Type="SyllabusDbModel.Der" Multiplicity="0..1" />
     <End Role="Haftalık_Ders_Prog" Type="SyllabusDbModel.Haftalık_Ders_Prog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ders">
+        <PropertyRef Name="ders_ID" />
+      </Principal>
+      <Dependent Role="Haftalık_Ders_Prog">
+        <PropertyRef Name="ders_ID" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
   <Association Name="FK_Ders_Hoca_Hoca">
     <End Role="Hoca" Type="SyllabusDbModel.Hoca" Multiplicity="0..1" />
     <End Role="Ders_Hoca" Type="SyllabusDbModel.Ders_Hoca" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hoca">
+        <PropertyRef Name="hoca_ID" />
+      </Principal>
+      <Dependent Role="Ders_Hoca">
+        <PropertyRef Name="hoca_ID" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
   <Association Name="FK_Derslik_Derslik_Tip">
     <End Role="Derslik_Tip" Type="SyllabusDbModel.Derslik_Tip" Multiplicity="0..1" />
     <End Role="Derslik" Type="SyllabusDbModel.Derslik" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Derslik_Tip">
+        <PropertyRef Name="derslik_Tipi_ID" />
+      </Principal>
+      <Dependent Role="Derslik">
+        <PropertyRef Name="derslik_Tip" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
   <Association Name="FK_Haftalık_Ders_Prog_Derslik">
     <End Role="Derslik" Type="SyllabusDbModel.Derslik" Multiplicity="0..1" />
     <End Role="Haftalık_Ders_Prog" Type="SyllabusDbModel.Haftalık_Ders_Prog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Derslik">
+        <PropertyRef Name="derslik_ID" />
+      </Principal>
+      <Dependent Role="Haftalık_Ders_Prog">
+        <PropertyRef Name="derslik_ID" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
   <Association Name="FK_Haftalık_Ders_Prog_Donem">
     <End Role="Donem" Type="SyllabusDbModel.Donem" Multiplicity="0..1" />
     <End Role="Haftalık_Ders_Prog" Type="SyllabusDbModel.Haftalık_Ders_Prog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Donem">
+        <PropertyRef Name="donem_ID" />
+      </Principal>
+      <Dependent Role="Haftalık_Ders_Prog">
+        <PropertyRef Name="donem_ID" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
   <Association Name="FK_Fakulte_Fakulte_Tipi">
     <End Role="Fakulte_Tipi" Type="SyllabusDbModel.Fakulte_Tipi" Multiplicity="0..1" />
     <End Role="Fakulte" Type="SyllabusDbModel.Fakulte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fakulte_Tipi">
+        <PropertyRef Name="fakulte_Tipi_ID" />
+      </Principal>
+      <Dependent Role="Fakulte">
+        <PropertyRef Name="fakulte_Tipi" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
   <Association Name="FK_Hoca_Idari_Gorev">
     <End Role="Idari_Gorev" Type="SyllabusDbModel.Idari_Gorev" Multiplicity="0..1" />
     <End Role="Hoca" Type="SyllabusDbModel.Hoca" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Idari_Gorev">
+        <PropertyRef Name="idari_Gorev_ID" />
+      </Principal>
+      <Dependent Role="Hoca">
+        <PropertyRef Name="idari_Gorev" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
   <Association Name="FK_Hoca_Unvan">
     <End Role="Unvan" Type="SyllabusDbModel.Unvan" Multiplicity="0..1" />
     <End Role="Hoca" Type="SyllabusDbModel.Hoca" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unvan">
+        <PropertyRef Name="unvan_ID" />
+      </Principal>
+      <Dependent Role="Hoca">
+        <PropertyRef Name="akademik_Unvan" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
 </Schema>

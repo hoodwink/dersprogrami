@@ -103,24 +103,6 @@ namespace dersprogrami {
         protected global::Ext.Net.ComboBox cmbx_unvan;
         
         /// <summary>
-        /// cmbx_program control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.ComboBox cmbx_program;
-        
-        /// <summary>
-        /// cmbx_gorevKadrosu control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.ComboBox cmbx_gorevKadrosu;
-        
-        /// <summary>
         /// btn_Save control.
         /// </summary>
         /// <remarks>

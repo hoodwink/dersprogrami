@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
   <!-- EF Runtime content -->
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SyllabusDbModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+      <Schema Namespace="SyllabusDbModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="SyllabusDbModelStoreContainer">
           <EntitySet Name="Bolum" EntityType="SyllabusDbModel.Store.Bolum" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Ders" EntityType="SyllabusDbModel.Store.Ders" store:Type="Tables" Schema="dbo" />
@@ -437,43 +437,12 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Function Name="fn_diagramobjects" ReturnType="int" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-          <Parameter Name="version" Type="int" Mode="In" />
-          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
-        </Function>
-        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-          <Parameter Name="version" Type="int" Mode="In" />
-          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
-        </Function>
-        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-        </Function>
-        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-        </Function>
-        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-        </Function>
-        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
-        </Function>
-        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="SyllabusDbModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
-        <EntityContainer Name="SyllabusDbEntities">
+      <Schema Namespace="SyllabusDbModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="SyllabusDbEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Bolums" EntityType="SyllabusDbModel.Bolum" />
           <EntitySet Name="Ders" EntityType="SyllabusDbModel.Der" />
           <EntitySet Name="Ders_Hoca" EntityType="SyllabusDbModel.Ders_Hoca" />
@@ -556,10 +525,12 @@
             <PropertyRef Name="bolum_ID" />
           </Key>
           <Property Name="bolum_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fakulte_ID" Type="Int32" Nullable="false" />
           <Property Name="bolum_Kodu" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="bolum_Adi" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="bolum_Baskani_Kodu" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="sube_Sayisi" Type="Int32" />
+          <Property Name="egitim_Suresi_ID" Type="Int32" />
           <NavigationProperty Name="Egitim_Sureleri" Relationship="SyllabusDbModel.FK_Bolum_Egitim_Sureleri" FromRole="Bolum" ToRole="Egitim_Sureleri" />
           <NavigationProperty Name="Fakulte" Relationship="SyllabusDbModel.FK_Bolum_Fakulte" FromRole="Bolum" ToRole="Fakulte" />
           <NavigationProperty Name="Dersliks" Relationship="SyllabusDbModel.FK_Derslik_Bolum" FromRole="Bolum" ToRole="Derslik" />
@@ -571,6 +542,7 @@
             <PropertyRef Name="ders_ID" />
           </Key>
           <Property Name="ders_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="donem_ID" Type="Int32" Nullable="false" />
           <Property Name="bolum_ID" Type="Int32" Nullable="false" />
           <Property Name="ders_Kodu" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="ders_Adi" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
@@ -590,6 +562,8 @@
           <Key>
             <PropertyRef Name="Ders_Hoca_ID" />
           </Key>
+          <Property Name="hoca_ID" Type="Int32" />
+          <Property Name="ders_ID" Type="Int32" />
           <Property Name="ücret" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="Ders_Hoca_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Der" Relationship="SyllabusDbModel.FK_Ders_Hoca_Ders" FromRole="Ders_Hoca" ToRole="Ders" />
@@ -607,11 +581,13 @@
             <PropertyRef Name="derslik_ID" />
           </Key>
           <Property Name="derslik_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="bolum_ID" Type="Int32" Nullable="false" />
           <Property Name="derslik_Kodu" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="derslik_Tip" Type="Int32" />
           <Property Name="derslik_Kapasitesi" Type="Int32" />
           <Property Name="aciklama" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="Bolum" Relationship="SyllabusDbModel.FK_Derslik_Bolum" FromRole="Derslik" ToRole="Bolum" />
-          <NavigationProperty Name="Derslik_Tip" Relationship="SyllabusDbModel.FK_Derslik_Derslik_Tip" FromRole="Derslik" ToRole="Derslik_Tip" />
+          <NavigationProperty Name="Derslik_Tip1" Relationship="SyllabusDbModel.FK_Derslik_Derslik_Tip" FromRole="Derslik" ToRole="Derslik_Tip" />
           <NavigationProperty Name="Haftalık_Ders_Prog" Relationship="SyllabusDbModel.FK_Haftalık_Ders_Prog_Derslik" FromRole="Derslik" ToRole="Haftalık_Ders_Prog" />
         </EntityType>
         <EntityType Name="Derslik_Tip">
@@ -655,13 +631,14 @@
           </Key>
           <Property Name="fakulte_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="fakulte_Kodu" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="fakulte_Tipi" Type="Int32" />
           <Property Name="fakulte_Adi" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="fakulte_Kisa_Adi" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
           <Property Name="fakulte_Dekani_ID" Type="Int32" Nullable="false" />
           <Property Name="fakulte_Dekan_Yard_ID" Type="Int32" />
           <Property Name="fakulte_Dekan_Yard2_ID" Type="Int32" />
           <NavigationProperty Name="Bolums" Relationship="SyllabusDbModel.FK_Bolum_Fakulte" FromRole="Fakulte" ToRole="Bolum" />
-          <NavigationProperty Name="Fakulte_Tipi" Relationship="SyllabusDbModel.FK_Fakulte_Fakulte_Tipi" FromRole="Fakulte" ToRole="Fakulte_Tipi" />
+          <NavigationProperty Name="Fakulte_Tipi1" Relationship="SyllabusDbModel.FK_Fakulte_Fakulte_Tipi" FromRole="Fakulte" ToRole="Fakulte_Tipi" />
         </EntityType>
         <EntityType Name="Fakulte_Tipi">
           <Key>
@@ -676,8 +653,12 @@
             <PropertyRef Name="Ders_Programi_ID" />
           </Key>
           <Property Name="Ders_Programi_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="donem_ID" Type="Int32" />
           <Property Name="gun" Type="Byte" />
           <Property Name="saat" Type="Byte" />
+          <Property Name="ders_ID" Type="Int32" />
+          <Property Name="derslik_ID" Type="Int32" />
+          <Property Name="bolum_ID" Type="Int32" />
           <Property Name="teorikmi" Type="Boolean" />
           <Property Name="sinif" Type="Byte" />
           <Property Name="yariyil" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
@@ -696,9 +677,12 @@
           <Property Name="hoca_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="hoca_Adi" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="sicil_No" Type="Int32" />
+          <Property Name="bolum_ID" Type="Int32" />
+          <Property Name="akademik_Unvan" Type="Int32" />
+          <Property Name="idari_Gorev" Type="Int32" />
           <NavigationProperty Name="Bolum" Relationship="SyllabusDbModel.FK_Hoca_Bolum" FromRole="Hoca" ToRole="Bolum" />
           <NavigationProperty Name="Ders_Hoca" Relationship="SyllabusDbModel.FK_Ders_Hoca_Hoca" FromRole="Hoca" ToRole="Ders_Hoca" />
-          <NavigationProperty Name="Idari_Gorev" Relationship="SyllabusDbModel.FK_Hoca_Idari_Gorev" FromRole="Hoca" ToRole="Idari_Gorev" />
+          <NavigationProperty Name="Idari_Gorev1" Relationship="SyllabusDbModel.FK_Hoca_Idari_Gorev" FromRole="Hoca" ToRole="Idari_Gorev" />
           <NavigationProperty Name="Unvan" Relationship="SyllabusDbModel.FK_Hoca_Unvan" FromRole="Hoca" ToRole="Unvan" />
         </EntityType>
         <EntityType Name="Idari_Gorev">
@@ -743,77 +727,199 @@
         <Association Name="FK_Bolum_Egitim_Sureleri">
           <End Role="Egitim_Sureleri" Type="SyllabusDbModel.Egitim_Sureleri" Multiplicity="0..1" />
           <End Role="Bolum" Type="SyllabusDbModel.Bolum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Egitim_Sureleri">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Bolum">
+              <PropertyRef Name="egitim_Suresi_ID" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
         <Association Name="FK_Bolum_Fakulte">
           <End Role="Fakulte" Type="SyllabusDbModel.Fakulte" Multiplicity="1" />
           <End Role="Bolum" Type="SyllabusDbModel.Bolum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fakulte">
+              <PropertyRef Name="fakulte_ID" />
+            </Principal>
+            <Dependent Role="Bolum">
+              <PropertyRef Name="fakulte_ID" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
         <Association Name="FK_Derslik_Bolum">
           <End Role="Bolum" Type="SyllabusDbModel.Bolum" Multiplicity="1" />
           <End Role="Derslik" Type="SyllabusDbModel.Derslik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bolum">
+              <PropertyRef Name="bolum_ID" />
+            </Principal>
+            <Dependent Role="Derslik">
+              <PropertyRef Name="bolum_ID" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
         <Association Name="FK_Haftalık_Ders_Prog_Bolum">
           <End Role="Bolum" Type="SyllabusDbModel.Bolum" Multiplicity="0..1" />
           <End Role="Haftalık_Ders_Prog" Type="SyllabusDbModel.Haftalık_Ders_Prog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bolum">
+              <PropertyRef Name="bolum_ID" />
+            </Principal>
+            <Dependent Role="Haftalık_Ders_Prog">
+              <PropertyRef Name="bolum_ID" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
         <Association Name="FK_Hoca_Bolum">
           <End Role="Bolum" Type="SyllabusDbModel.Bolum" Multiplicity="0..1" />
           <End Role="Hoca" Type="SyllabusDbModel.Hoca" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bolum">
+              <PropertyRef Name="bolum_ID" />
+            </Principal>
+            <Dependent Role="Hoca">
+              <PropertyRef Name="bolum_ID" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
         <Association Name="FK_Ders_Donem">
           <End Role="Donem" Type="SyllabusDbModel.Donem" Multiplicity="1" />
           <End Role="Ders" Type="SyllabusDbModel.Der" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Donem">
+              <PropertyRef Name="donem_ID" />
+            </Principal>
+            <Dependent Role="Ders">
+              <PropertyRef Name="donem_ID" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
         <Association Name="FK_Ders_Hoca_Ders">
           <End Role="Ders" Type="SyllabusDbModel.Der" Multiplicity="0..1" />
           <End Role="Ders_Hoca" Type="SyllabusDbModel.Ders_Hoca" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ders">
+              <PropertyRef Name="ders_ID" />
+            </Principal>
+            <Dependent Role="Ders_Hoca">
+              <PropertyRef Name="ders_ID" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
         <Association Name="FK_Haftalık_Ders_Prog_Ders">
           <End Role="Ders" Type="SyllabusDbModel.Der" Multiplicity="0..1" />
           <End Role="Haftalık_Ders_Prog" Type="SyllabusDbModel.Haftalık_Ders_Prog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ders">
+              <PropertyRef Name="ders_ID" />
+            </Principal>
+            <Dependent Role="Haftalık_Ders_Prog">
+              <PropertyRef Name="ders_ID" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
         <Association Name="FK_Ders_Hoca_Hoca">
           <End Role="Hoca" Type="SyllabusDbModel.Hoca" Multiplicity="0..1" />
           <End Role="Ders_Hoca" Type="SyllabusDbModel.Ders_Hoca" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hoca">
+              <PropertyRef Name="hoca_ID" />
+            </Principal>
+            <Dependent Role="Ders_Hoca">
+              <PropertyRef Name="hoca_ID" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
         <Association Name="FK_Derslik_Derslik_Tip">
           <End Role="Derslik_Tip" Type="SyllabusDbModel.Derslik_Tip" Multiplicity="0..1" />
           <End Role="Derslik" Type="SyllabusDbModel.Derslik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Derslik_Tip">
+              <PropertyRef Name="derslik_Tipi_ID" />
+            </Principal>
+            <Dependent Role="Derslik">
+              <PropertyRef Name="derslik_Tip" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
         <Association Name="FK_Haftalık_Ders_Prog_Derslik">
           <End Role="Derslik" Type="SyllabusDbModel.Derslik" Multiplicity="0..1" />
           <End Role="Haftalık_Ders_Prog" Type="SyllabusDbModel.Haftalık_Ders_Prog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Derslik">
+              <PropertyRef Name="derslik_ID" />
+            </Principal>
+            <Dependent Role="Haftalık_Ders_Prog">
+              <PropertyRef Name="derslik_ID" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
         <Association Name="FK_Haftalık_Ders_Prog_Donem">
           <End Role="Donem" Type="SyllabusDbModel.Donem" Multiplicity="0..1" />
           <End Role="Haftalık_Ders_Prog" Type="SyllabusDbModel.Haftalık_Ders_Prog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Donem">
+              <PropertyRef Name="donem_ID" />
+            </Principal>
+            <Dependent Role="Haftalık_Ders_Prog">
+              <PropertyRef Name="donem_ID" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
         <Association Name="FK_Fakulte_Fakulte_Tipi">
           <End Role="Fakulte_Tipi" Type="SyllabusDbModel.Fakulte_Tipi" Multiplicity="0..1" />
           <End Role="Fakulte" Type="SyllabusDbModel.Fakulte" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fakulte_Tipi">
+              <PropertyRef Name="fakulte_Tipi_ID" />
+            </Principal>
+            <Dependent Role="Fakulte">
+              <PropertyRef Name="fakulte_Tipi" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
         <Association Name="FK_Hoca_Idari_Gorev">
           <End Role="Idari_Gorev" Type="SyllabusDbModel.Idari_Gorev" Multiplicity="0..1" />
           <End Role="Hoca" Type="SyllabusDbModel.Hoca" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Idari_Gorev">
+              <PropertyRef Name="idari_Gorev_ID" />
+            </Principal>
+            <Dependent Role="Hoca">
+              <PropertyRef Name="idari_Gorev" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
         <Association Name="FK_Hoca_Unvan">
           <End Role="Unvan" Type="SyllabusDbModel.Unvan" Multiplicity="0..1" />
           <End Role="Hoca" Type="SyllabusDbModel.Hoca" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unvan">
+              <PropertyRef Name="unvan_ID" />
+            </Principal>
+            <Dependent Role="Hoca">
+              <PropertyRef Name="akademik_Unvan" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="SyllabusDbModelStoreContainer" CdmEntityContainer="SyllabusDbEntities">
           <EntitySetMapping Name="Bolums">
             <EntityTypeMapping TypeName="SyllabusDbModel.Bolum">
               <MappingFragment StoreEntitySet="Bolum">
                 <ScalarProperty Name="bolum_ID" ColumnName="bolum_ID" />
+                <ScalarProperty Name="fakulte_ID" ColumnName="fakulte_ID" />
                 <ScalarProperty Name="bolum_Kodu" ColumnName="bolum_Kodu" />
                 <ScalarProperty Name="bolum_Adi" ColumnName="bolum_Adi" />
                 <ScalarProperty Name="bolum_Baskani_Kodu" ColumnName="bolum_Baskani_Kodu" />
                 <ScalarProperty Name="sube_Sayisi" ColumnName="sube_Sayisi" />
+                <ScalarProperty Name="egitim_Suresi_ID" ColumnName="egitim_Suresi_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -821,6 +927,7 @@
             <EntityTypeMapping TypeName="SyllabusDbModel.Der">
               <MappingFragment StoreEntitySet="Ders">
                 <ScalarProperty Name="ders_ID" ColumnName="ders_ID" />
+                <ScalarProperty Name="donem_ID" ColumnName="donem_ID" />
                 <ScalarProperty Name="bolum_ID" ColumnName="bolum_ID" />
                 <ScalarProperty Name="ders_Kodu" ColumnName="ders_Kodu" />
                 <ScalarProperty Name="ders_Adi" ColumnName="ders_Adi" />
@@ -838,6 +945,8 @@
           <EntitySetMapping Name="Ders_Hoca">
             <EntityTypeMapping TypeName="SyllabusDbModel.Ders_Hoca">
               <MappingFragment StoreEntitySet="Ders_Hoca">
+                <ScalarProperty Name="hoca_ID" ColumnName="hoca_ID" />
+                <ScalarProperty Name="ders_ID" ColumnName="ders_ID" />
                 <ScalarProperty Name="ücret" ColumnName="ücret" />
                 <ScalarProperty Name="Ders_Hoca_ID" ColumnName="Ders_Hoca_ID" />
               </MappingFragment>
@@ -855,7 +964,9 @@
             <EntityTypeMapping TypeName="SyllabusDbModel.Derslik">
               <MappingFragment StoreEntitySet="Derslik">
                 <ScalarProperty Name="derslik_ID" ColumnName="derslik_ID" />
+                <ScalarProperty Name="bolum_ID" ColumnName="bolum_ID" />
                 <ScalarProperty Name="derslik_Kodu" ColumnName="derslik_Kodu" />
+                <ScalarProperty Name="derslik_Tip" ColumnName="derslik_Tip" />
                 <ScalarProperty Name="derslik_Kapasitesi" ColumnName="derslik_Kapasitesi" />
                 <ScalarProperty Name="aciklama" ColumnName="aciklama" />
               </MappingFragment>
@@ -900,6 +1011,7 @@
               <MappingFragment StoreEntitySet="Fakulte">
                 <ScalarProperty Name="fakulte_ID" ColumnName="fakulte_ID" />
                 <ScalarProperty Name="fakulte_Kodu" ColumnName="fakulte_Kodu" />
+                <ScalarProperty Name="fakulte_Tipi" ColumnName="fakulte_Tipi" />
                 <ScalarProperty Name="fakulte_Adi" ColumnName="fakulte_Adi" />
                 <ScalarProperty Name="fakulte_Kisa_Adi" ColumnName="fakulte_Kisa_Adi" />
                 <ScalarProperty Name="fakulte_Dekani_ID" ColumnName="fakulte_Dekani_ID" />
@@ -920,8 +1032,12 @@
             <EntityTypeMapping TypeName="SyllabusDbModel.Haftalık_Ders_Prog">
               <MappingFragment StoreEntitySet="Haftalık_Ders_Prog">
                 <ScalarProperty Name="Ders_Programi_ID" ColumnName="Ders_Programi_ID" />
+                <ScalarProperty Name="donem_ID" ColumnName="donem_ID" />
                 <ScalarProperty Name="gun" ColumnName="gun" />
                 <ScalarProperty Name="saat" ColumnName="saat" />
+                <ScalarProperty Name="ders_ID" ColumnName="ders_ID" />
+                <ScalarProperty Name="derslik_ID" ColumnName="derslik_ID" />
+                <ScalarProperty Name="bolum_ID" ColumnName="bolum_ID" />
                 <ScalarProperty Name="teorikmi" ColumnName="teorikmi" />
                 <ScalarProperty Name="sinif" ColumnName="sinif" />
                 <ScalarProperty Name="yariyil" ColumnName="yariyil" />
@@ -937,6 +1053,9 @@
                 <ScalarProperty Name="hoca_ID" ColumnName="hoca_ID" />
                 <ScalarProperty Name="hoca_Adi" ColumnName="hoca_Adi" />
                 <ScalarProperty Name="sicil_No" ColumnName="sicil_No" />
+                <ScalarProperty Name="bolum_ID" ColumnName="bolum_ID" />
+                <ScalarProperty Name="akademik_Unvan" ColumnName="akademik_Unvan" />
+                <ScalarProperty Name="idari_Gorev" ColumnName="idari_Gorev" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -981,144 +1100,12 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="FK_Bolum_Egitim_Sureleri" TypeName="SyllabusDbModel.FK_Bolum_Egitim_Sureleri" StoreEntitySet="Bolum">
-            <EndProperty Name="Egitim_Sureleri">
-              <ScalarProperty Name="id" ColumnName="egitim_Suresi_ID" />
-            </EndProperty>
-            <EndProperty Name="Bolum">
-              <ScalarProperty Name="bolum_ID" ColumnName="bolum_ID" />
-            </EndProperty>
-            <Condition ColumnName="egitim_Suresi_ID" IsNull="false" />
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="FK_Bolum_Fakulte" TypeName="SyllabusDbModel.FK_Bolum_Fakulte" StoreEntitySet="Bolum">
-            <EndProperty Name="Fakulte">
-              <ScalarProperty Name="fakulte_ID" ColumnName="fakulte_ID" />
-            </EndProperty>
-            <EndProperty Name="Bolum">
-              <ScalarProperty Name="bolum_ID" ColumnName="bolum_ID" />
-            </EndProperty>
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="FK_Derslik_Bolum" TypeName="SyllabusDbModel.FK_Derslik_Bolum" StoreEntitySet="Derslik">
-            <EndProperty Name="Bolum">
-              <ScalarProperty Name="bolum_ID" ColumnName="bolum_ID" />
-            </EndProperty>
-            <EndProperty Name="Derslik">
-              <ScalarProperty Name="derslik_ID" ColumnName="derslik_ID" />
-            </EndProperty>
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="FK_Haftalık_Ders_Prog_Bolum" TypeName="SyllabusDbModel.FK_Haftalık_Ders_Prog_Bolum" StoreEntitySet="Haftalık_Ders_Prog">
-            <EndProperty Name="Bolum">
-              <ScalarProperty Name="bolum_ID" ColumnName="bolum_ID" />
-            </EndProperty>
-            <EndProperty Name="Haftalık_Ders_Prog">
-              <ScalarProperty Name="Ders_Programi_ID" ColumnName="Ders_Programi_ID" />
-            </EndProperty>
-            <Condition ColumnName="bolum_ID" IsNull="false" />
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="FK_Hoca_Bolum" TypeName="SyllabusDbModel.FK_Hoca_Bolum" StoreEntitySet="Hoca">
-            <EndProperty Name="Bolum">
-              <ScalarProperty Name="bolum_ID" ColumnName="bolum_ID" />
-            </EndProperty>
-            <EndProperty Name="Hoca">
-              <ScalarProperty Name="hoca_ID" ColumnName="hoca_ID" />
-            </EndProperty>
-            <Condition ColumnName="bolum_ID" IsNull="false" />
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="FK_Ders_Donem" TypeName="SyllabusDbModel.FK_Ders_Donem" StoreEntitySet="Ders">
-            <EndProperty Name="Donem">
-              <ScalarProperty Name="donem_ID" ColumnName="donem_ID" />
-            </EndProperty>
-            <EndProperty Name="Ders">
-              <ScalarProperty Name="ders_ID" ColumnName="ders_ID" />
-            </EndProperty>
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="FK_Ders_Hoca_Ders" TypeName="SyllabusDbModel.FK_Ders_Hoca_Ders" StoreEntitySet="Ders_Hoca">
-            <EndProperty Name="Ders">
-              <ScalarProperty Name="ders_ID" ColumnName="ders_ID" />
-            </EndProperty>
-            <EndProperty Name="Ders_Hoca">
-              <ScalarProperty Name="Ders_Hoca_ID" ColumnName="Ders_Hoca_ID" />
-            </EndProperty>
-            <Condition ColumnName="ders_ID" IsNull="false" />
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="FK_Haftalık_Ders_Prog_Ders" TypeName="SyllabusDbModel.FK_Haftalık_Ders_Prog_Ders" StoreEntitySet="Haftalık_Ders_Prog">
-            <EndProperty Name="Ders">
-              <ScalarProperty Name="ders_ID" ColumnName="ders_ID" />
-            </EndProperty>
-            <EndProperty Name="Haftalık_Ders_Prog">
-              <ScalarProperty Name="Ders_Programi_ID" ColumnName="Ders_Programi_ID" />
-            </EndProperty>
-            <Condition ColumnName="ders_ID" IsNull="false" />
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="FK_Ders_Hoca_Hoca" TypeName="SyllabusDbModel.FK_Ders_Hoca_Hoca" StoreEntitySet="Ders_Hoca">
-            <EndProperty Name="Hoca">
-              <ScalarProperty Name="hoca_ID" ColumnName="hoca_ID" />
-            </EndProperty>
-            <EndProperty Name="Ders_Hoca">
-              <ScalarProperty Name="Ders_Hoca_ID" ColumnName="Ders_Hoca_ID" />
-            </EndProperty>
-            <Condition ColumnName="hoca_ID" IsNull="false" />
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="FK_Derslik_Derslik_Tip" TypeName="SyllabusDbModel.FK_Derslik_Derslik_Tip" StoreEntitySet="Derslik">
-            <EndProperty Name="Derslik_Tip">
-              <ScalarProperty Name="derslik_Tipi_ID" ColumnName="derslik_Tip" />
-            </EndProperty>
-            <EndProperty Name="Derslik">
-              <ScalarProperty Name="derslik_ID" ColumnName="derslik_ID" />
-            </EndProperty>
-            <Condition ColumnName="derslik_Tip" IsNull="false" />
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="FK_Haftalık_Ders_Prog_Derslik" TypeName="SyllabusDbModel.FK_Haftalık_Ders_Prog_Derslik" StoreEntitySet="Haftalık_Ders_Prog">
-            <EndProperty Name="Derslik">
-              <ScalarProperty Name="derslik_ID" ColumnName="derslik_ID" />
-            </EndProperty>
-            <EndProperty Name="Haftalık_Ders_Prog">
-              <ScalarProperty Name="Ders_Programi_ID" ColumnName="Ders_Programi_ID" />
-            </EndProperty>
-            <Condition ColumnName="derslik_ID" IsNull="false" />
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="FK_Haftalık_Ders_Prog_Donem" TypeName="SyllabusDbModel.FK_Haftalık_Ders_Prog_Donem" StoreEntitySet="Haftalık_Ders_Prog">
-            <EndProperty Name="Donem">
-              <ScalarProperty Name="donem_ID" ColumnName="donem_ID" />
-            </EndProperty>
-            <EndProperty Name="Haftalık_Ders_Prog">
-              <ScalarProperty Name="Ders_Programi_ID" ColumnName="Ders_Programi_ID" />
-            </EndProperty>
-            <Condition ColumnName="donem_ID" IsNull="false" />
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="FK_Fakulte_Fakulte_Tipi" TypeName="SyllabusDbModel.FK_Fakulte_Fakulte_Tipi" StoreEntitySet="Fakulte">
-            <EndProperty Name="Fakulte_Tipi">
-              <ScalarProperty Name="fakulte_Tipi_ID" ColumnName="fakulte_Tipi" />
-            </EndProperty>
-            <EndProperty Name="Fakulte">
-              <ScalarProperty Name="fakulte_ID" ColumnName="fakulte_ID" />
-            </EndProperty>
-            <Condition ColumnName="fakulte_Tipi" IsNull="false" />
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="FK_Hoca_Idari_Gorev" TypeName="SyllabusDbModel.FK_Hoca_Idari_Gorev" StoreEntitySet="Hoca">
-            <EndProperty Name="Idari_Gorev">
-              <ScalarProperty Name="idari_Gorev_ID" ColumnName="idari_Gorev" />
-            </EndProperty>
-            <EndProperty Name="Hoca">
-              <ScalarProperty Name="hoca_ID" ColumnName="hoca_ID" />
-            </EndProperty>
-            <Condition ColumnName="idari_Gorev" IsNull="false" />
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="FK_Hoca_Unvan" TypeName="SyllabusDbModel.FK_Hoca_Unvan" StoreEntitySet="Hoca">
-            <EndProperty Name="Unvan">
-              <ScalarProperty Name="unvan_ID" ColumnName="akademik_Unvan" />
-            </EndProperty>
-            <EndProperty Name="Hoca">
-              <ScalarProperty Name="hoca_ID" ColumnName="hoca_ID" />
-            </EndProperty>
-            <Condition ColumnName="akademik_Unvan" IsNull="false" />
-          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
-  <Designer xmlns="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
     <Connection>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
@@ -1128,129 +1115,110 @@
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="False" />
-        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="Model1">
-        <EntityTypeShape EntityType="SyllabusDbModel.Bolum" Width="1.5" PointX="5.25" PointY="5.25" Height="2.9417936197916648" IsExpanded="true" />
-        <EntityTypeShape EntityType="SyllabusDbModel.Der" Width="1.5" PointX="10.5" PointY="0.75" Height="3.9033007812499996" IsExpanded="true" />
-        <EntityTypeShape EntityType="SyllabusDbModel.Ders_Hoca" Width="1.5" PointX="15.75" PointY="5.75" Height="1.7879850260416657" IsExpanded="true" />
-        <EntityTypeShape EntityType="SyllabusDbModel.Ders_Tip" Width="1.5" PointX="0.75" PointY="9" Height="1.4033821614583317" IsExpanded="true" />
-        <EntityTypeShape EntityType="SyllabusDbModel.Derslik" Width="1.5" PointX="7.5" PointY="5.5" Height="2.3648893229166674" IsExpanded="true" />
-        <EntityTypeShape EntityType="SyllabusDbModel.Derslik_Tip" Width="1.5" PointX="5.25" PointY="1.875" Height="1.5956835937499996" IsExpanded="true" />
-        <EntityTypeShape EntityType="SyllabusDbModel.Donem" Width="1.5" PointX="8.25" PointY="8.875" Height="2.3648893229166692" IsExpanded="true" />
-        <EntityTypeShape EntityType="SyllabusDbModel.Egitim_Sureleri" Width="1.5" PointX="3" PointY="1.25" Height="2.9417936197916674" IsExpanded="true" />
-        <EntityTypeShape EntityType="SyllabusDbModel.Fakulte" Width="1.5" PointX="3" PointY="5.375" Height="2.7494921874999996" IsExpanded="true" />
-        <EntityTypeShape EntityType="SyllabusDbModel.Fakulte_Tipi" Width="1.5" PointX="0.75" PointY="5.875" Height="1.5956835937499996" IsExpanded="true" />
-        <EntityTypeShape EntityType="SyllabusDbModel.Haftalık_Ders_Prog" Width="1.5" PointX="12.75" PointY="5" Height="3.5186979166666745" IsExpanded="true" />
-        <EntityTypeShape EntityType="SyllabusDbModel.Hoca" Width="1.5" PointX="10.5" PointY="5.5" Height="2.3648893229166745" IsExpanded="true" />
-        <EntityTypeShape EntityType="SyllabusDbModel.Idari_Gorev" Width="1.5" PointX="8.25" PointY="2.5" Height="1.7879850260416674" IsExpanded="true" />
-        <EntityTypeShape EntityType="SyllabusDbModel.Kullanici" Width="1.5" PointX="2.75" PointY="9" Height="2.1725878906250031" IsExpanded="true" />
-        <EntityTypeShape EntityType="SyllabusDbModel.sysdiagram" Width="1.5" PointX="4.75" PointY="9" Height="1.9802864583333388" IsExpanded="true" />
-        <EntityTypeShape EntityType="SyllabusDbModel.Unvan" Width="1.5" PointX="8.25" PointY="12.125" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="SyllabusDbModel.Bolum" Width="1.5" PointX="5.25" PointY="6.125" Height="3.3263964843749987" IsExpanded="true" />
+        <EntityTypeShape EntityType="SyllabusDbModel.Der" Width="1.5" PointX="10.5" PointY="0.75" Height="4.0956022135416656" IsExpanded="true" />
+        <EntityTypeShape EntityType="SyllabusDbModel.Ders_Hoca" Width="1.5" PointX="15.75" PointY="6.75" Height="2.1725878906249987" IsExpanded="true" />
+        <EntityTypeShape EntityType="SyllabusDbModel.Ders_Tip" Width="1.5" PointX="0.75" PointY="10.375" Height="1.4033821614583317" IsExpanded="true" />
+        <EntityTypeShape EntityType="SyllabusDbModel.Derslik" Width="1.5" PointX="7.5" PointY="6.375" Height="2.7494921874999987" IsExpanded="true" />
+        <EntityTypeShape EntityType="SyllabusDbModel.Derslik_Tip" Width="1.5" PointX="5.25" PointY="3" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="SyllabusDbModel.Donem" Width="1.5" PointX="8.25" PointY="2.875" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="SyllabusDbModel.Egitim_Sureleri" Width="1.5" PointX="3" PointY="2.375" Height="2.9417936197916674" IsExpanded="true" />
+        <EntityTypeShape EntityType="SyllabusDbModel.Fakulte" Width="1.5" PointX="3" PointY="6.375" Height="2.9417936197916683" IsExpanded="true" />
+        <EntityTypeShape EntityType="SyllabusDbModel.Fakulte_Tipi" Width="1.5" PointX="0.75" PointY="7" Height="1.5956835937499987" IsExpanded="true" />
+        <EntityTypeShape EntityType="SyllabusDbModel.Haftalık_Ders_Prog" Width="1.5" PointX="12.75" PointY="5.625" Height="4.2879036458333326" IsExpanded="true" />
+        <EntityTypeShape EntityType="SyllabusDbModel.Hoca" Width="1.5" PointX="10.5" PointY="6.375" Height="2.9417936197916754" IsExpanded="true" />
+        <EntityTypeShape EntityType="SyllabusDbModel.Idari_Gorev" Width="1.5" PointX="8.25" PointY="10.625" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="SyllabusDbModel.Kullanici" Width="1.5" PointX="2.75" PointY="10.375" Height="2.1725878906250031" IsExpanded="true" />
+        <EntityTypeShape EntityType="SyllabusDbModel.sysdiagram" Width="1.5" PointX="4.75" PointY="10.375" Height="1.9802864583333388" IsExpanded="true" />
+        <EntityTypeShape EntityType="SyllabusDbModel.Unvan" Width="1.5" PointX="8.25" PointY="13.125" Height="1.7879850260416674" IsExpanded="true" />
         <AssociationConnector Association="SyllabusDbModel.FK_Bolum_Egitim_Sureleri" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="4.1917936197916674" />
-          <ConnectorPoint PointX="4.875" PointY="4.5667936197916674" />
-          <ConnectorPoint PointX="4.875" PointY="6.7208968098958319" />
-          <ConnectorPoint PointX="5.25" PointY="6.7208968098958319" />
+          <ConnectorPoint PointX="4.5" PointY="5.3167936197916674" />
+          <ConnectorPoint PointX="4.875" PointY="5.6917936197916674" />
+          <ConnectorPoint PointX="4.875" PointY="7.7881982421875" />
+          <ConnectorPoint PointX="5.25" PointY="7.7881982421875" />
         </AssociationConnector>
         <AssociationConnector Association="SyllabusDbModel.FK_Bolum_Fakulte" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="7.4851944986979158" />
-          <ConnectorPoint PointX="5.25" PointY="7.4851944986979158" />
+          <ConnectorPoint PointX="4.5" PointY="8.6149959309895827" />
+          <ConnectorPoint PointX="5.25" PointY="8.6149959309895827" />
         </AssociationConnector>
         <AssociationConnector Association="SyllabusDbModel.FK_Derslik_Bolum" ManuallyRouted="false">
-          <ConnectorPoint PointX="6.75" PointY="6.6824446614583337" />
-          <ConnectorPoint PointX="7.5" PointY="6.6824446614583337" />
+          <ConnectorPoint PointX="6.75" PointY="7.74974609375" />
+          <ConnectorPoint PointX="7.5" PointY="7.74974609375" />
         </AssociationConnector>
         <AssociationConnector Association="SyllabusDbModel.FK_Haftalık_Ders_Prog_Bolum" ManuallyRouted="false">
-          <ConnectorPoint PointX="6.75" PointY="8.05959147135417" />
-          <ConnectorPoint PointX="8.1666666666666661" PointY="8.05959147135417" />
-          <ConnectorPoint PointX="8.3333333333333339" PointY="8.05959147135417" />
-          <ConnectorPoint PointX="10.041666666666666" PointY="8.05959147135417" />
-          <ConnectorPoint PointX="10.208333333333334" PointY="8.05959147135417" />
-          <ConnectorPoint PointX="10.760414166666665" PointY="8.05959147135417" />
-          <ConnectorPoint PointX="10.927080833333333" PointY="8.05959147135417" />
-          <ConnectorPoint PointX="11.166666666666666" PointY="8.05959147135417" />
-          <ConnectorPoint PointX="11.333333333333334" PointY="8.05959147135417" />
-          <ConnectorPoint PointX="12.75" PointY="8.05959147135417" />
+          <ConnectorPoint PointX="6.75" PointY="6.21875" />
+          <ConnectorPoint PointX="7.041666666666667" PointY="6.2187499999999991" />
+          <ConnectorPoint PointX="7.208333333333333" PointY="6.21875" />
+          <ConnectorPoint PointX="12.75" PointY="6.21875" />
         </AssociationConnector>
         <AssociationConnector Association="SyllabusDbModel.FK_Hoca_Bolum" ManuallyRouted="false">
-          <ConnectorPoint PointX="6.75" PointY="8.1569450455729164" />
-          <ConnectorPoint PointX="8.1666666666666661" PointY="8.1569450455729164" />
-          <ConnectorPoint PointX="8.3333333333333339" PointY="8.1569450455729164" />
-          <ConnectorPoint PointX="10.041666666666666" PointY="8.1569450455729164" />
-          <ConnectorPoint PointX="10.208333333333334" PointY="8.1569450455729164" />
-          <ConnectorPoint PointX="10.760414166666665" PointY="8.1569450455729164" />
-          <ConnectorPoint PointX="10.927080833333333" PointY="8.1569450455729164" />
-          <ConnectorPoint PointX="11.25" PointY="8.1569450455729164" />
-          <ConnectorPoint PointX="11.25" PointY="7.8648893229166745" />
+          <ConnectorPoint PointX="6.75" PointY="9.2518929036458371" />
+          <ConnectorPoint PointX="8.1666666666666661" PointY="9.2518929036458371" />
+          <ConnectorPoint PointX="8.3333333333333339" PointY="9.2518929036458371" />
+          <ConnectorPoint PointX="10.5" PointY="9.2518929036458371" />
         </AssociationConnector>
         <AssociationConnector Association="SyllabusDbModel.FK_Ders_Donem" ManuallyRouted="false">
-          <ConnectorPoint PointX="9.75" PointY="8.875" />
-          <ConnectorPoint PointX="10.125" PointY="8.5" />
-          <ConnectorPoint PointX="10.125" PointY="2.701650390625" />
-          <ConnectorPoint PointX="10.5" PointY="2.701650390625" />
+          <ConnectorPoint PointX="9.75" PointY="3.8603011067708328" />
+          <ConnectorPoint PointX="10.5" PointY="3.8603011067708328" />
         </AssociationConnector>
         <AssociationConnector Association="SyllabusDbModel.FK_Ders_Hoca_Ders" ManuallyRouted="false">
-          <ConnectorPoint PointX="12" PointY="2.701650390625" />
-          <ConnectorPoint PointX="16.5" PointY="2.701650390625" />
-          <ConnectorPoint PointX="16.5" PointY="5.75" />
+          <ConnectorPoint PointX="12" PointY="2.7978011067708328" />
+          <ConnectorPoint PointX="16.5" PointY="2.7978011067708328" />
+          <ConnectorPoint PointX="16.5" PointY="6.75" />
         </AssociationConnector>
         <AssociationConnector Association="SyllabusDbModel.FK_Haftalık_Ders_Prog_Ders" ManuallyRouted="false">
-          <ConnectorPoint PointX="12" PointY="3.7087280859375005" />
-          <ConnectorPoint PointX="13.5" PointY="3.7087280859375005" />
-          <ConnectorPoint PointX="13.5" PointY="5" />
+          <ConnectorPoint PointX="12" PointY="3.85295416015625" />
+          <ConnectorPoint PointX="13.5" PointY="3.85295416015625" />
+          <ConnectorPoint PointX="13.5" PointY="5.625" />
         </AssociationConnector>
         <AssociationConnector Association="SyllabusDbModel.FK_Ders_Hoca_Hoca" ManuallyRouted="false">
-          <ConnectorPoint PointX="11.25" PointY="5.5" />
-          <ConnectorPoint PointX="11.25" PointY="5.25" />
-          <ConnectorPoint PointX="12.5" PointY="5.25" />
-          <ConnectorPoint PointX="12.5" PointY="4.75" />
-          <ConnectorPoint PointX="13.416666666666666" PointY="4.7499999999999991" />
-          <ConnectorPoint PointX="13.583333333333334" PointY="4.75" />
-          <ConnectorPoint PointX="15.375" PointY="4.75" />
-          <ConnectorPoint PointX="15.375" PointY="6.6439925130208328" />
-          <ConnectorPoint PointX="15.75" PointY="6.6439925130208328" />
+          <ConnectorPoint PointX="11.25" PointY="9.3167936197916745" />
+          <ConnectorPoint PointX="11.25" PointY="10.162903645833332" />
+          <ConnectorPoint PointX="15.375" PointY="10.162903645833332" />
+          <ConnectorPoint PointX="15.375" PointY="7.8362939453125" />
+          <ConnectorPoint PointX="15.75" PointY="7.8362939453125" />
         </AssociationConnector>
         <AssociationConnector Association="SyllabusDbModel.FK_Derslik_Derslik_Tip" ManuallyRouted="false">
-          <ConnectorPoint PointX="6.75" PointY="2.15625" />
-          <ConnectorPoint PointX="7.84375" PointY="2.15625" />
-          <ConnectorPoint PointX="7.84375" PointY="5.5" />
+          <ConnectorPoint PointX="6.75" PointY="4.59568359375" />
+          <ConnectorPoint PointX="7.125" PointY="4.97068359375" />
+          <ConnectorPoint PointX="7.125" PointY="7.0311210468749987" />
+          <ConnectorPoint PointX="7.5" PointY="7.0311210468749987" />
         </AssociationConnector>
         <AssociationConnector Association="SyllabusDbModel.FK_Haftalık_Ders_Prog_Derslik" ManuallyRouted="false">
-          <ConnectorPoint PointX="8.25" PointY="7.8648893229166674" />
-          <ConnectorPoint PointX="8.25" PointY="8.3378214811197964" />
-          <ConnectorPoint PointX="10.041666666666666" PointY="8.3378214811197964" />
-          <ConnectorPoint PointX="10.208333333333334" PointY="8.3378214811197964" />
-          <ConnectorPoint PointX="10.760414166666665" PointY="8.3378214811197964" />
-          <ConnectorPoint PointX="10.927080833333333" PointY="8.3378214811197964" />
-          <ConnectorPoint PointX="12.75" PointY="8.3378214811197964" />
+          <ConnectorPoint PointX="8.25" PointY="9.1244921875" />
+          <ConnectorPoint PointX="8.25" PointY="9.6460986328125031" />
+          <ConnectorPoint PointX="9.3229166666666661" PointY="9.6460986328125031" />
+          <ConnectorPoint PointX="9.4895833333333339" PointY="9.6460986328125031" />
+          <ConnectorPoint PointX="10.760414166666665" PointY="9.6460986328125031" />
+          <ConnectorPoint PointX="10.927080833333333" PointY="9.6460986328125031" />
+          <ConnectorPoint PointX="11.166666666666666" PointY="9.6460986328125031" />
+          <ConnectorPoint PointX="11.333333333333334" PointY="9.6460986328125031" />
+          <ConnectorPoint PointX="12.75" PointY="9.6460986328125031" />
         </AssociationConnector>
         <AssociationConnector Association="SyllabusDbModel.FK_Haftalık_Ders_Prog_Donem" ManuallyRouted="false">
-          <ConnectorPoint PointX="9.75" PointY="10.088697161458335" />
-          <ConnectorPoint PointX="10.760414166666665" PointY="10.088697161458335" />
-          <ConnectorPoint PointX="10.927080833333333" PointY="10.088697161458335" />
-          <ConnectorPoint PointX="13.5" PointY="10.088697161458335" />
-          <ConnectorPoint PointX="13.5" PointY="8.5186979166666745" />
+          <ConnectorPoint PointX="9.75" PointY="5.0739957682291665" />
+          <ConnectorPoint PointX="13.0937475" PointY="5.0739957682291665" />
+          <ConnectorPoint PointX="13.0937475" PointY="5.625" />
         </AssociationConnector>
         <AssociationConnector Association="SyllabusDbModel.FK_Fakulte_Fakulte_Tipi" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="6.672841796875" />
-          <ConnectorPoint PointX="3" PointY="6.672841796875" />
+          <ConnectorPoint PointX="2.25" PointY="7.797841796875" />
+          <ConnectorPoint PointX="3" PointY="7.797841796875" />
         </AssociationConnector>
         <AssociationConnector Association="SyllabusDbModel.FK_Hoca_Idari_Gorev" ManuallyRouted="false">
-          <ConnectorPoint PointX="9.75" PointY="4.2245224875801286" />
-          <ConnectorPoint PointX="10.066074434901122" PointY="4.5405969224812495" />
-          <ConnectorPoint PointX="10.183925565098878" PointY="4.6584480526790077" />
-          <ConnectorPoint PointX="10.3125" PointY="4.7870224875801286" />
-          <ConnectorPoint PointX="10.3125" PointY="6.6824446614583373" />
-          <ConnectorPoint PointX="10.5" PointY="6.6824446614583373" />
+          <ConnectorPoint PointX="9.40625" PointY="10.625" />
+          <ConnectorPoint PointX="9.40625" PointY="9.2831454036458378" />
+          <ConnectorPoint PointX="10.5" PointY="9.2831454036458378" />
         </AssociationConnector>
         <AssociationConnector Association="SyllabusDbModel.FK_Hoca_Unvan" ManuallyRouted="false">
-          <ConnectorPoint PointX="9.75" PointY="13.018992513020834" />
-          <ConnectorPoint PointX="10.8437475" PointY="13.018992513020834" />
-          <ConnectorPoint PointX="10.8437475" PointY="7.8648893229166745" />
+          <ConnectorPoint PointX="9.75" PointY="14.018992513020834" />
+          <ConnectorPoint PointX="10.8437475" PointY="14.018992513020834" />
+          <ConnectorPoint PointX="10.8437475" PointY="9.3167936197916745" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

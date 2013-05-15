@@ -1,14 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="SyllabusDbModelStoreContainer" CdmEntityContainer="SyllabusDbEntities">
     <EntitySetMapping Name="Bolums">
       <EntityTypeMapping TypeName="SyllabusDbModel.Bolum">
         <MappingFragment StoreEntitySet="Bolum">
           <ScalarProperty Name="bolum_ID" ColumnName="bolum_ID" />
+          <ScalarProperty Name="fakulte_ID" ColumnName="fakulte_ID" />
           <ScalarProperty Name="bolum_Kodu" ColumnName="bolum_Kodu" />
           <ScalarProperty Name="bolum_Adi" ColumnName="bolum_Adi" />
           <ScalarProperty Name="bolum_Baskani_Kodu" ColumnName="bolum_Baskani_Kodu" />
           <ScalarProperty Name="sube_Sayisi" ColumnName="sube_Sayisi" />
+          <ScalarProperty Name="egitim_Suresi_ID" ColumnName="egitim_Suresi_ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -16,6 +18,7 @@
       <EntityTypeMapping TypeName="SyllabusDbModel.Der">
         <MappingFragment StoreEntitySet="Ders">
           <ScalarProperty Name="ders_ID" ColumnName="ders_ID" />
+          <ScalarProperty Name="donem_ID" ColumnName="donem_ID" />
           <ScalarProperty Name="bolum_ID" ColumnName="bolum_ID" />
           <ScalarProperty Name="ders_Kodu" ColumnName="ders_Kodu" />
           <ScalarProperty Name="ders_Adi" ColumnName="ders_Adi" />
@@ -33,6 +36,8 @@
     <EntitySetMapping Name="Ders_Hoca">
       <EntityTypeMapping TypeName="SyllabusDbModel.Ders_Hoca">
         <MappingFragment StoreEntitySet="Ders_Hoca">
+          <ScalarProperty Name="hoca_ID" ColumnName="hoca_ID" />
+          <ScalarProperty Name="ders_ID" ColumnName="ders_ID" />
           <ScalarProperty Name="ücret" ColumnName="ücret" />
           <ScalarProperty Name="Ders_Hoca_ID" ColumnName="Ders_Hoca_ID" />
         </MappingFragment>
@@ -50,7 +55,9 @@
       <EntityTypeMapping TypeName="SyllabusDbModel.Derslik">
         <MappingFragment StoreEntitySet="Derslik">
           <ScalarProperty Name="derslik_ID" ColumnName="derslik_ID" />
+          <ScalarProperty Name="bolum_ID" ColumnName="bolum_ID" />
           <ScalarProperty Name="derslik_Kodu" ColumnName="derslik_Kodu" />
+          <ScalarProperty Name="derslik_Tip" ColumnName="derslik_Tip" />
           <ScalarProperty Name="derslik_Kapasitesi" ColumnName="derslik_Kapasitesi" />
           <ScalarProperty Name="aciklama" ColumnName="aciklama" />
         </MappingFragment>
@@ -95,6 +102,7 @@
         <MappingFragment StoreEntitySet="Fakulte">
           <ScalarProperty Name="fakulte_ID" ColumnName="fakulte_ID" />
           <ScalarProperty Name="fakulte_Kodu" ColumnName="fakulte_Kodu" />
+          <ScalarProperty Name="fakulte_Tipi" ColumnName="fakulte_Tipi" />
           <ScalarProperty Name="fakulte_Adi" ColumnName="fakulte_Adi" />
           <ScalarProperty Name="fakulte_Kisa_Adi" ColumnName="fakulte_Kisa_Adi" />
           <ScalarProperty Name="fakulte_Dekani_ID" ColumnName="fakulte_Dekani_ID" />
@@ -115,8 +123,12 @@
       <EntityTypeMapping TypeName="SyllabusDbModel.Haftalık_Ders_Prog">
         <MappingFragment StoreEntitySet="Haftalık_Ders_Prog">
           <ScalarProperty Name="Ders_Programi_ID" ColumnName="Ders_Programi_ID" />
+          <ScalarProperty Name="donem_ID" ColumnName="donem_ID" />
           <ScalarProperty Name="gun" ColumnName="gun" />
           <ScalarProperty Name="saat" ColumnName="saat" />
+          <ScalarProperty Name="ders_ID" ColumnName="ders_ID" />
+          <ScalarProperty Name="derslik_ID" ColumnName="derslik_ID" />
+          <ScalarProperty Name="bolum_ID" ColumnName="bolum_ID" />
           <ScalarProperty Name="teorikmi" ColumnName="teorikmi" />
           <ScalarProperty Name="sinif" ColumnName="sinif" />
           <ScalarProperty Name="yariyil" ColumnName="yariyil" />
@@ -132,6 +144,9 @@
           <ScalarProperty Name="hoca_ID" ColumnName="hoca_ID" />
           <ScalarProperty Name="hoca_Adi" ColumnName="hoca_Adi" />
           <ScalarProperty Name="sicil_No" ColumnName="sicil_No" />
+          <ScalarProperty Name="bolum_ID" ColumnName="bolum_ID" />
+          <ScalarProperty Name="akademik_Unvan" ColumnName="akademik_Unvan" />
+          <ScalarProperty Name="idari_Gorev" ColumnName="idari_Gorev" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -176,137 +191,5 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="FK_Bolum_Egitim_Sureleri" TypeName="SyllabusDbModel.FK_Bolum_Egitim_Sureleri" StoreEntitySet="Bolum">
-      <EndProperty Name="Egitim_Sureleri">
-        <ScalarProperty Name="id" ColumnName="egitim_Suresi_ID" />
-      </EndProperty>
-      <EndProperty Name="Bolum">
-        <ScalarProperty Name="bolum_ID" ColumnName="bolum_ID" />
-      </EndProperty>
-      <Condition ColumnName="egitim_Suresi_ID" IsNull="false" />
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="FK_Bolum_Fakulte" TypeName="SyllabusDbModel.FK_Bolum_Fakulte" StoreEntitySet="Bolum">
-      <EndProperty Name="Fakulte">
-        <ScalarProperty Name="fakulte_ID" ColumnName="fakulte_ID" />
-      </EndProperty>
-      <EndProperty Name="Bolum">
-        <ScalarProperty Name="bolum_ID" ColumnName="bolum_ID" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="FK_Derslik_Bolum" TypeName="SyllabusDbModel.FK_Derslik_Bolum" StoreEntitySet="Derslik">
-      <EndProperty Name="Bolum">
-        <ScalarProperty Name="bolum_ID" ColumnName="bolum_ID" />
-      </EndProperty>
-      <EndProperty Name="Derslik">
-        <ScalarProperty Name="derslik_ID" ColumnName="derslik_ID" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="FK_Haftalık_Ders_Prog_Bolum" TypeName="SyllabusDbModel.FK_Haftalık_Ders_Prog_Bolum" StoreEntitySet="Haftalık_Ders_Prog">
-      <EndProperty Name="Bolum">
-        <ScalarProperty Name="bolum_ID" ColumnName="bolum_ID" />
-      </EndProperty>
-      <EndProperty Name="Haftalık_Ders_Prog">
-        <ScalarProperty Name="Ders_Programi_ID" ColumnName="Ders_Programi_ID" />
-      </EndProperty>
-      <Condition ColumnName="bolum_ID" IsNull="false" />
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="FK_Hoca_Bolum" TypeName="SyllabusDbModel.FK_Hoca_Bolum" StoreEntitySet="Hoca">
-      <EndProperty Name="Bolum">
-        <ScalarProperty Name="bolum_ID" ColumnName="bolum_ID" />
-      </EndProperty>
-      <EndProperty Name="Hoca">
-        <ScalarProperty Name="hoca_ID" ColumnName="hoca_ID" />
-      </EndProperty>
-      <Condition ColumnName="bolum_ID" IsNull="false" />
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="FK_Ders_Donem" TypeName="SyllabusDbModel.FK_Ders_Donem" StoreEntitySet="Ders">
-      <EndProperty Name="Donem">
-        <ScalarProperty Name="donem_ID" ColumnName="donem_ID" />
-      </EndProperty>
-      <EndProperty Name="Ders">
-        <ScalarProperty Name="ders_ID" ColumnName="ders_ID" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="FK_Ders_Hoca_Ders" TypeName="SyllabusDbModel.FK_Ders_Hoca_Ders" StoreEntitySet="Ders_Hoca">
-      <EndProperty Name="Ders">
-        <ScalarProperty Name="ders_ID" ColumnName="ders_ID" />
-      </EndProperty>
-      <EndProperty Name="Ders_Hoca">
-        <ScalarProperty Name="Ders_Hoca_ID" ColumnName="Ders_Hoca_ID" />
-      </EndProperty>
-      <Condition ColumnName="ders_ID" IsNull="false" />
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="FK_Haftalık_Ders_Prog_Ders" TypeName="SyllabusDbModel.FK_Haftalık_Ders_Prog_Ders" StoreEntitySet="Haftalık_Ders_Prog">
-      <EndProperty Name="Ders">
-        <ScalarProperty Name="ders_ID" ColumnName="ders_ID" />
-      </EndProperty>
-      <EndProperty Name="Haftalık_Ders_Prog">
-        <ScalarProperty Name="Ders_Programi_ID" ColumnName="Ders_Programi_ID" />
-      </EndProperty>
-      <Condition ColumnName="ders_ID" IsNull="false" />
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="FK_Ders_Hoca_Hoca" TypeName="SyllabusDbModel.FK_Ders_Hoca_Hoca" StoreEntitySet="Ders_Hoca">
-      <EndProperty Name="Hoca">
-        <ScalarProperty Name="hoca_ID" ColumnName="hoca_ID" />
-      </EndProperty>
-      <EndProperty Name="Ders_Hoca">
-        <ScalarProperty Name="Ders_Hoca_ID" ColumnName="Ders_Hoca_ID" />
-      </EndProperty>
-      <Condition ColumnName="hoca_ID" IsNull="false" />
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="FK_Derslik_Derslik_Tip" TypeName="SyllabusDbModel.FK_Derslik_Derslik_Tip" StoreEntitySet="Derslik">
-      <EndProperty Name="Derslik_Tip">
-        <ScalarProperty Name="derslik_Tipi_ID" ColumnName="derslik_Tip" />
-      </EndProperty>
-      <EndProperty Name="Derslik">
-        <ScalarProperty Name="derslik_ID" ColumnName="derslik_ID" />
-      </EndProperty>
-      <Condition ColumnName="derslik_Tip" IsNull="false" />
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="FK_Haftalık_Ders_Prog_Derslik" TypeName="SyllabusDbModel.FK_Haftalık_Ders_Prog_Derslik" StoreEntitySet="Haftalık_Ders_Prog">
-      <EndProperty Name="Derslik">
-        <ScalarProperty Name="derslik_ID" ColumnName="derslik_ID" />
-      </EndProperty>
-      <EndProperty Name="Haftalık_Ders_Prog">
-        <ScalarProperty Name="Ders_Programi_ID" ColumnName="Ders_Programi_ID" />
-      </EndProperty>
-      <Condition ColumnName="derslik_ID" IsNull="false" />
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="FK_Haftalık_Ders_Prog_Donem" TypeName="SyllabusDbModel.FK_Haftalık_Ders_Prog_Donem" StoreEntitySet="Haftalık_Ders_Prog">
-      <EndProperty Name="Donem">
-        <ScalarProperty Name="donem_ID" ColumnName="donem_ID" />
-      </EndProperty>
-      <EndProperty Name="Haftalık_Ders_Prog">
-        <ScalarProperty Name="Ders_Programi_ID" ColumnName="Ders_Programi_ID" />
-      </EndProperty>
-      <Condition ColumnName="donem_ID" IsNull="false" />
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="FK_Fakulte_Fakulte_Tipi" TypeName="SyllabusDbModel.FK_Fakulte_Fakulte_Tipi" StoreEntitySet="Fakulte">
-      <EndProperty Name="Fakulte_Tipi">
-        <ScalarProperty Name="fakulte_Tipi_ID" ColumnName="fakulte_Tipi" />
-      </EndProperty>
-      <EndProperty Name="Fakulte">
-        <ScalarProperty Name="fakulte_ID" ColumnName="fakulte_ID" />
-      </EndProperty>
-      <Condition ColumnName="fakulte_Tipi" IsNull="false" />
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="FK_Hoca_Idari_Gorev" TypeName="SyllabusDbModel.FK_Hoca_Idari_Gorev" StoreEntitySet="Hoca">
-      <EndProperty Name="Idari_Gorev">
-        <ScalarProperty Name="idari_Gorev_ID" ColumnName="idari_Gorev" />
-      </EndProperty>
-      <EndProperty Name="Hoca">
-        <ScalarProperty Name="hoca_ID" ColumnName="hoca_ID" />
-      </EndProperty>
-      <Condition ColumnName="idari_Gorev" IsNull="false" />
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="FK_Hoca_Unvan" TypeName="SyllabusDbModel.FK_Hoca_Unvan" StoreEntitySet="Hoca">
-      <EndProperty Name="Unvan">
-        <ScalarProperty Name="unvan_ID" ColumnName="akademik_Unvan" />
-      </EndProperty>
-      <EndProperty Name="Hoca">
-        <ScalarProperty Name="hoca_ID" ColumnName="hoca_ID" />
-      </EndProperty>
-      <Condition ColumnName="akademik_Unvan" IsNull="false" />
-    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping>

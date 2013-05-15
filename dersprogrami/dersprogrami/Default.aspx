@@ -5,11 +5,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Cumhuriyet Üniversitesi Ders Programı Hazırlama Uygulaması</title>
+    <style type="text/css">
+    .ViewportCls
+    {
+    	float:left;
+    	position:relative;
+    	top:2px;
+    	margin-left:5px;
+    }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
     <ext:ResourceManager ID="ResourceManager1" runat="server" />
-    <ext:Viewport ID="Viewport1" runat="server" Layout="fit">
+
+    <ext:Viewport ID="Viewport1" runat="server" Layout="fit" Cls="ViewportCls">
         <Items>
             <ext:TabPanel ID="TabPanel1" runat="server" Border="false">
                 <Defaults>
@@ -21,11 +31,15 @@
                     <ext:Panel ID="Tab2" runat="server" Title="Öğretim Elemanı Ekleme Formu">
                           <AutoLoad Url="ogretimElemani.aspx" Mode="IFrame" ShowMask="true" />                          
                     </ext:Panel>
-                    <ext:Panel ID="Tab3" runat="server" Title="Bölüm Ekleme Formu">
+                    <ext:Panel ID="Tab3" runat="server" Title="Fakülte Ekleme Formu">
+                    <AutoLoad Url="fakulteler.aspx" Mode="IFrame" ShowMask="true" />
                     </ext:Panel>
-                    <ext:Panel ID="Tab4" runat="server" Title="Ders Ekleme Formu">
+                    <ext:Panel ID="Tab4" runat="server" Title="Bölüm Ekleme Formu">
+                    <AutoLoad Url="bolumler.aspx" Mode="IFrame" ShowMask="true" />
                     </ext:Panel>
-                    <ext:Panel ID="Tab5" runat="server" Title="Derslik Ekleme Formu">
+                    <ext:Panel ID="Tab5" runat="server" Title="Ders Ekleme Formu">
+                    </ext:Panel>
+                    <ext:Panel ID="Tab6" runat="server" Title="Derslik Ekleme Formu">
                     </ext:Panel>
                 </Items>
             </ext:TabPanel>

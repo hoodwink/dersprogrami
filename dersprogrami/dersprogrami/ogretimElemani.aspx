@@ -11,9 +11,9 @@
     .gridPanelHoca
         {
             float:right;
-            position:relative;
-            top:-182px;
-            margin-right:5px;
+          top:-140px;
+               position:relative;
+           margin-right:5px;
         }
         .btnSaveCls
         {
@@ -70,12 +70,12 @@
                 StoreID="source_unvan" DisplayField="unvan_Adi" ValueField="unvan_ID" Mode="Local"
                 TriggerAction="All" EmptyText="Lütfen ünvan seçin">
             </ext:ComboBox>
-            <ext:ComboBox ID="cmbx_program" runat="server" FieldLabel="Programı" Width="250"
+            <%--<ext:ComboBox ID="cmbx_program" runat="server" FieldLabel="Programı" Width="250"
                 Editable="false" Mode="Local" TriggerAction="All" EmptyText="Lütfen program seçin">
             </ext:ComboBox>
             <ext:ComboBox ID="cmbx_gorevKadrosu" runat="server" FieldLabel="Görev Kadrosu" Width="250"
                 Editable="false" Mode="Local" TriggerAction="All" EmptyText="Görev kadrosunu seçin">
-            </ext:ComboBox>
+            </ext:ComboBox>--%>
             <ext:Button ID="btn_Save" runat="server" Text="Kaydet" Icon="Disk" Width="75" Height="40" Cls="btnSaveCls"/>
             <ext:GridPanel ID="grdpnl_hoca" Cls="gridPanelHoca" runat="server" StoreID="store_Hoca"
                 Icon="Clipboard" StripeRows="true" Title="Hoca Listesi" Width="590" Height="320"

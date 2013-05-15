@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="C:\Users\SemihDuran\Desktop\Ders Programı Projesi\WebPublish" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FileSystem" replaceMatchingFiles="True" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="bin/Newtonsoft.Json.dll" publishTime="04/24/2013 22:47:22" />
+    <file relUrl="bin/dersprogrami.dll" publishTime="04/25/2013 00:12:01" />
+    <file relUrl="Scripts/jquery-1.4.1-vsdoc.js" publishTime="04/24/2013 22:47:22" />
+    <file relUrl="bin/Ext.Net.Utilities.dll" publishTime="04/24/2013 22:47:22" />
+    <file relUrl="Login.aspx" publishTime="04/24/2013 22:47:22" />
+    <file relUrl="Scripts/jquery-1.4.1.js" publishTime="04/24/2013 22:47:22" />
+    <file relUrl="Web.config" publishTime="04/25/2013 00:18:53" />
+    <file relUrl="bin/Ext.Net.dll" publishTime="04/24/2013 22:47:22" />
+    <file relUrl="Scripts/jquery-1.4.1.min.js" publishTime="04/24/2013 22:47:22" />
+    <file relUrl="Default.aspx" publishTime="04/24/2013 23:08:07" />
+    <file relUrl="ogretimElemani.aspx" publishTime="04/24/2013 23:14:09" />
+    <file relUrl="bin/dersprogrami.pdb" publishTime="04/25/2013 00:12:01" />
+  </publishProfile>
+</publishData>

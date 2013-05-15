@@ -32,7 +32,7 @@
                     FieldLabel="Kullanıcı Adı" 
                     AllowBlank="false"
                     MaxLength="60"
-                    AnchorHorizontal="100%"
+                    AnchorHorizontal="100%" Text="semih"
                     />
                 <ext:TextField 
                     ID="txtPassword" 
@@ -41,7 +41,7 @@
                     FieldLabel="Parola" 
                     AllowBlank="false"
                     MaxLength="16" 
-                    AnchorHorizontal="100%"
+                    AnchorHorizontal="100%" Text="123456"
                     />
                     
                 <ext:Label
